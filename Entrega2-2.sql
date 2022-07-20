@@ -1,6 +1,6 @@
 SELECT nombre FROM tienda.producto;
 SELECT nombre , precio FROM tienda.producto;
-SELECT COLUMNS FROM tienda.producto;
+SHOW COLUMNS FROM tienda.producto;
 SELECT nombre, precio, FORMAT(precio * 1.02, 2) AS segundo_precio FROM tienda.producto;
 SELECT nombre, precio AS euros, FORMAT(precio * 1.02, 2) AS dòlars FROM tienda.producto;
 SELECT UPPER(nombre) AS nombre, precio FROM tienda.producto;
