@@ -1,0 +1,14 @@
+SELECT nombre FROM tienda.producto;
+SELECT nombre , precio FROM tienda.producto;
+SHOW COLUMNS FROM tienda.producto;
+SELECT nombre, precio, FORMAT(precio * 1.02, 2) AS segundo_precio FROM tienda.producto;
+SELECT nombre, precio AS euros, FORMAT(precio * 1.02, 2) AS dòlars FROM tienda.producto;
+SELECT UPPER(nombre) AS nombre, precio FROM tienda.producto;
+SELECT LOWER(nombre) AS nombre, precio FROM tienda.producto;
+SELECT nombre, SUBSTRING(nombre, 1, 2) AS abreviación FROM tienda.fabricante;
+SELECT nombre, FORMAT(precio, 2) AS precio FROM tienda.producto;
+SELECT nombre, FORMAT(precio, 0) AS precio FROM tienda.producto;
+SELECT codigo_fabricante FROM tienda.producto;
+SELECT DISTINCT codigo_fabricante FROM tienda.producto;
+SELECT nombre FROM tienda.fabricante ORDER BY nombre ASC;
+SELECT nombre FROM tienda.fabricante ORDER BY nombre DESC;
