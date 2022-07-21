@@ -27,4 +27,7 @@ SELECT f.nombre, p.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto
 SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE precio >200 AND f.nombre LIKE 'Crucial%';
 SELECT f.nombre, p.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre LIKE 'Asus%' OR f.nombre LIKE 'Hewlett%' OR f.nombre LIKE 'Seagate%';
 SELECT f.nombre, p.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Asus', 'Hewlett-Packard', 'Seagate');
-SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre like '%e'
+SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre like '%e';
+SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre like '%w%';
+SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE precio >= 180 ORDER BY p.precio DESC, p.nombre ASC;
+SELECT f.codigo, f.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo;
