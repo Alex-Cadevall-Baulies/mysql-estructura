@@ -32,3 +32,4 @@ SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tiend
 SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE precio >= 180 ORDER BY p.precio DESC, p.nombre ASC;
 SELECT f.codigo, f.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo;
 SELECT f.*, p.nombre, p.precio FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo;
+SELECT f.* FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE  ISNULL(p.codigo_fabricante);
