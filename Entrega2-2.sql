@@ -23,5 +23,7 @@ SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tiend
 SELECT p.codigo, p.nombre, f.codigo, f.nombre  FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo;
 SELECT p.nombre, p.precio, f.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo ORDER BY p.precio ASC LIMIT 1;
 SELECT p.nombre, p.precio, f.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo ORDER BY p.precio DESC LIMIT 1;
-SELECT f.nombre, p.nombre WHERE f.nombre like 'ASUS' FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo;
-
+SELECT f.nombre, p.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre LIKE 'Asus%';
+SELECT nombre, precio FROM tienda.producto WHERE precio > 200 AND nombre LIKE 'Crucial';
+SELECT f.nombre, p.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre LIKE ('Asus%', 'Hewlett%', 'Seagate%');
+SELECT f.nombre, p.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Asus%', 'Hewlett%', 'Seagate%');
