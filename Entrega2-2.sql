@@ -37,5 +37,5 @@ SELECT f.nombre, p.nombre from tienda.fabricante AS f LEFT JOIN tienda.producto 
 SELECT f.*, p.* from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE p.precio = 559;
 SELECT p.nombre from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Lenovo') ORDER BY p.precio DESC LIMIT 1;
 SELECT p.nombre from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Hewlett-Packard') ORDER BY p.precio ASC LIMIT 1;
-SELECT f.*, p.* from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE p.precio >= 559;
-SELECT f.nombre, p.nombre, p.precio from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Asus'), p.precio > (SELECT AVG(p.precio));
+SELECT f.*, p.* FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE p.precio >= 559;
+SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Asus') AND p.precio > (SELECT AVG(p.precio) FROM tienda.producto AS p LEFT JOIN tienda.fabricante AS f ON f.codigo = p.codigo_fabricante WHERE f.nombre IN ('Asus') GROUP BY f.nombre);
