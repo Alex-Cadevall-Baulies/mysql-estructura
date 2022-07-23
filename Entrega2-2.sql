@@ -45,4 +45,5 @@ SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f LEFT JOIN tienda
 SELECT nombre, apellido1, apellido2 FROM universidad.persona WHERE tipo IN ('alumno') ORDER BY apellido1 ASC, apellido2 ASC, nombre ASC;
 SELECT nombre, apellido1, apellido2, telefono FROM universidad.persona WHERE tipo IN ('alumno') AND telefono IS NULL;
 SELECT nombre, apellido1, apellido2, fecha_nacimiento FROM universidad.persona WHERE tipo IN ('alumno') AND fecha_nacimiento LIKE '1999%';
-SELECT 
+SELECT nombre, apellido1, apellido2, telefono, nif FROM universidad.persona WHERE tipo IN ('profesor') AND telefono IS NULL AND nif LIKE '%K';
+SELECT nombre, id_grado, cuatrimestre, curso FROM universidad.asignatura WHERE cuatrimestre IN ('1') AND curso IN ('3') AND id_grado IN ('7');
