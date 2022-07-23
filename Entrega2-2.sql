@@ -1,4 +1,4 @@
--- Tenda
+-- Tenda (estan per ordre)
 SELECT nombre FROM tienda.producto;
 SELECT nombre , precio FROM tienda.producto;
 SHOW COLUMNS FROM tienda.producto;
@@ -41,4 +41,8 @@ SELECT p.nombre from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.
 SELECT f.*, p.* FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE p.precio >= 559;
 SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Asus') AND p.precio > (SELECT AVG(p.precio) FROM tienda.producto AS p LEFT JOIN tienda.fabricante AS f ON f.codigo = p.codigo_fabricante WHERE f.nombre IN ('Asus') GROUP BY f.nombre);
 
--- Universitat
+-- Universitat (estan per ordre)
+SELECT nombre, apellido1, apellido2 FROM universidad.persona WHERE tipo IN ('alumno') ORDER BY apellido1 ASC, apellido2 ASC, nombre ASC;
+SELECT nombre, apellido1, apellido2, telefono FROM universidad.persona WHERE tipo IN ('alumno') AND telefono IS NULL;
+SELECT nombre, apellido1, apellido2, fecha_nacimiento FROM universidad.persona WHERE tipo IN ('alumno') AND fecha_nacimiento LIKE '1999%';
+SELECT 
