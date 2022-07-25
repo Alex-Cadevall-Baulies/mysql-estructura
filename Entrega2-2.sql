@@ -65,3 +65,6 @@ SELECT COUNT(*) FROM universidad.persona WHERE tipo IN ('alumno');
 SELECT COUNT(*) FROM universidad.persona WHERE fecha_nacimiento LIKE '1999%';
 SELECT dep.nombre, COUNT(*) FROM universidad.persona AS p JOIN universidad.profesor AS pro ON p.id = pro.id_profesor LEFT JOIN universidad.departamento AS dep ON pro.id_departamento = dep.id GROUP BY dep.nombre ORDER BY COUNT(*) DESC;
 SELECT dep.nombre, COUNT(pro.id_profesor) FROM universidad.persona AS p JOIN universidad.profesor AS pro ON p.id = pro.id_profesor RIGHT JOIN universidad.departamento AS dep ON pro.id_departamento = dep.id GROUP BY dep.nombre ORDER BY COUNT(*) DESC;
+SELECT grado.nombre, COUNT(asignatura.id_grado) FROM universidad.grado AS grado LEFT JOIN universidad.asignatura AS asignatura ON grado.id = asignatura.id_grado GROUP BY grado.nombre ORDER BY COUNT(asignatura.id_grado) DESC;
+SELECT grado.nombre, COUNT(asignatura.id_grado) FROM universidad.grado AS grado LEFT JOIN universidad.asignatura AS asignatura ON grado.id = asignatura.id_grado GROUP BY grado.nombre HAVING COUNT(asignatura.id_grado) > 40;
+SELECT grado.nombre, asignatura.tipo, SUM(asignatura.creditos) FROM universidad.grado AS grado RIGHT JOIN universidad.asignatura AS asignatura ON grado.id = asignatura.id_grado GROUP BY asignatura.tipo, grado.nombre;
