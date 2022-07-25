@@ -1,5 +1,5 @@
 -- Exercici 1 - Òptica
-CREATE TABLE proveïdor (
+CREATE TABLE proveïdor_òptica (
     id INTEGER NOT NULL AUTO_INCREMENT,
     nom TEXT,
     adreça TEXT,
@@ -9,8 +9,8 @@ CREATE TABLE proveïdor (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE ulleres (
-
+CREATE TABLE ulleres_òptica (
+    id_proveidor INTEGER,
     marca TEXT,
     graduacio INTEGER,
     montura TEXT,
@@ -19,7 +19,7 @@ CREATE TABLE ulleres (
     preu INTEGER
 );
 
-CREATE TABLE clients (
+CREATE TABLE client_òptica (
     id INTEGER NOT NULL AUTO_INCREMENT,
     nom TEXT,
     adreça TEXT,
@@ -29,4 +29,21 @@ CREATE TABLE clients (
     recomenat TEXT,
     venta TEXT,
     PRIMARY KEY (id)
+);
+
+-- Exercici 2 - Pizzeria
+
+CREATE TABLE client_pizzeria (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    nom TEXT,
+    cognom1 TEXT,
+    cognom2 TEXT,
+    adreça TEXT,
+    codi_postal INTEGER,
+    id_localitat INTEGER NOT NULL,
+    localitat TEXT NOT NULL,
+    id_provincia INTEGER NOT NULL,
+    provincia TEXT,
+    telèfon INTEGER,
+    PRIMARY KEY (id, localitat, provincia)
 );
