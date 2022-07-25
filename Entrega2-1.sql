@@ -10,6 +10,7 @@ CREATE TABLE proveidor_òptica (
 );
 
 CREATE TABLE ulleres_òptica (
+    id_proveidor INT UNSIGNED NOT NULL,
     FOREIGN KEY (id_proveidor) REFERENCES proveidor_òptica(id),
     marca TEXT,
     graduacio INTEGER,
