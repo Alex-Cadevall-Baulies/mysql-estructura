@@ -59,3 +59,9 @@ SELECT  dep.nombre, p.nombre, p.apellido1, p.apellido2 FROM universidad.departam
 SELECT persona.nombre, persona.apellido1, persona.apellido2, asignatura.nombre AS asignatura FROM universidad.persona AS persona LEFT JOIN universidad.asignatura AS asignatura ON persona.id = asignatura.id_profesor WHERE asignatura.id_profesor IS NUll;
 SELECT persona.nombre, asignatura.nombre AS asignatura FROM universidad.persona AS persona RIGHT JOIN universidad.asignatura AS asignatura ON persona.id = asignatura.id_profesor WHERE asignatura.id_profesor IS NUll;
 SELECT dep.nombre, asignatura.nombre FROM universidad.departamento AS dep LEFT JOIN universidad.profesor AS pro ON dep.id = pro.id_departamento LEFT JOIN universidad.asignatura AS asignatura ON pro.id_profesor = asignatura.id_profesor WHERE asignatura.id_profesor IS NULL GROUP BY dep.nombre;
+
+-- Consultes resum (estan per ordre)
+SELECT COUNT(*) FROM universidad.persona WHERE tipo IN ('alumno');
+SELECT COUNT(*) FROM universidad.persona WHERE fecha_nacimiento LIKE '1999%';
+SELECT dep.nombre, COUNT(*) FROM universidad.persona AS p JOIN universidad.profesor AS pro ON p.id = pro.id_profesor LEFT JOIN universidad.departamento AS dep ON pro.id_departamento = dep.id GROUP BY dep.nombre ORDER BY COUNT(*) DESC;
+SELECT dep.nombre, COUNT(pro.id_profesor) FROM universidad.persona AS p JOIN universidad.profesor AS pro ON p.id = pro.id_profesor RIGHT JOIN universidad.departamento AS dep ON pro.id_departamento = dep.id GROUP BY dep.nombre ORDER BY COUNT(*) DESC;
