@@ -68,3 +68,4 @@ SELECT dep.nombre, COUNT(pro.id_profesor) FROM universidad.persona AS p JOIN uni
 SELECT grado.nombre, COUNT(asignatura.id_grado) FROM universidad.grado AS grado LEFT JOIN universidad.asignatura AS asignatura ON grado.id = asignatura.id_grado GROUP BY grado.nombre ORDER BY COUNT(asignatura.id_grado) DESC;
 SELECT grado.nombre, COUNT(asignatura.id_grado) FROM universidad.grado AS grado LEFT JOIN universidad.asignatura AS asignatura ON grado.id = asignatura.id_grado GROUP BY grado.nombre HAVING COUNT(asignatura.id_grado) > 40;
 SELECT grado.nombre, asignatura.tipo, SUM(asignatura.creditos) FROM universidad.grado AS grado RIGHT JOIN universidad.asignatura AS asignatura ON grado.id = asignatura.id_grado GROUP BY asignatura.tipo, grado.nombre;
+SELECT curso.anyo_inicio; COUNT(ids.id_curso_escolar) FROM universidad.curso_escolar AS curso RIGHT JOIN universidad.alumno_se_matricula_asignatura AS ids ON curso.id = ids.id_curso_escolar GROUP BY curso.anyo_inicio
