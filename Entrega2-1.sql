@@ -1,5 +1,5 @@
 -- Exercici 1 - Òptica
-CREATE TABLE proveïdor_òptica (
+CREATE TABLE proveidor_òptica (
     id INTEGER NOT NULL AUTO_INCREMENT,
     nom TEXT,
     adreça TEXT,
@@ -10,7 +10,7 @@ CREATE TABLE proveïdor_òptica (
 );
 
 CREATE TABLE ulleres_òptica (
-    id_proveidor INTEGER,
+    FOREIGN KEY (id_proveidor) REFERENCES proveidor_òptica(id),
     marca TEXT,
     graduacio INTEGER,
     montura TEXT,
