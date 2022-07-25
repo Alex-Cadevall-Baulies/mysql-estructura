@@ -1,13 +1,16 @@
 -- Exercici 1 - Òptica
 CREATE TABLE proveïdor (
+    id INTEGER NOT NULL AUTO_INCREMENT,
     nom TEXT,
     adreça TEXT,
     telèfon INTEGER,
     fax INTEGER,
-    nif INTEGER
+    nif INTEGER,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE ulleres (
+
     marca TEXT,
     graduacio INTEGER,
     montura TEXT,
@@ -17,11 +20,13 @@ CREATE TABLE ulleres (
 );
 
 CREATE TABLE clients (
+    id INTEGER NOT NULL AUTO_INCREMENT,
     nom TEXT,
     adreça TEXT,
     telèfon INTEGER,
     email TEXT,
-    data_registre INTEGER,
+    data_registre DATE,
     recomenat TEXT,
-    venta TEXT
+    venta TEXT,
+    PRIMARY KEY (id)
 );
