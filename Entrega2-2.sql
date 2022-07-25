@@ -33,7 +33,7 @@ SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tiend
 SELECT f.nombre, p.nombre, p.precio FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE precio >= 180 ORDER BY p.precio DESC, p.nombre ASC;
 SELECT f.codigo, f.nombre FROM tienda.fabricante AS f INNER JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo;
 SELECT f.*, p.nombre, p.precio FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo;
-SELECT f.* FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE  ISNULL(p.codigo_fabricante);
+SELECT f.* FROM tienda.fabricante AS f LEFT JOIN tienda.producto AS p ON p.codigo_fabricante = f.codigo WHERE ISNULL(p.codigo_fabricante);
 SELECT f.nombre, p.nombre from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Lenovo');
 SELECT f.*, p.* from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE p.precio = 559;
 SELECT p.nombre from tienda.fabricante AS f LEFT JOIN tienda.producto AS p on p.codigo_fabricante = f.codigo WHERE f.nombre IN ('Lenovo') ORDER BY p.precio DESC LIMIT 1;
@@ -53,3 +53,9 @@ SELECT p.nombre, p.apellido1, p.apellido2, grado.nombre AS grado, departamento.n
 SELECT nombre, apellido1, apellido2, curso.anyo_inicio, curso.anyo_fin FROM universidad.persona AS p JOIN alumno_se_matricula_asignatura AS a ON p.id = a.id_alumno JOIN curso_escolar AS curso ON a.id_curso_escolar = curso.id WHERE curso.anyo_fin IN ('2019') GROUP BY p.nombre;
 
 -- Consultes Universitat LEFT JOIN / RIGHT JOIN (estan per ordre)
+SELECT  dep.nombre, p.nombre, p.apellido1, p.apellido2 FROM universidad.persona AS p LEFT JOIN universidad.profesor AS profesor ON p.id = profesor.id_profesor RIGHT JOIN universidad.departamento AS dep ON profesor.id_departamento = dep.id WHERE tipo IN ('profesor') ORDER BY dep.nombre ASC, p.apellido1 ASC, p.apellido2 ASC, p.nombre ASC;
+SELECT  dep.nombre, p.nombre, p.apellido1, p.apellido2 FROM universidad.persona AS p LEFT JOIN universidad.profesor AS profesor ON p.id = profesor.id_profesor LEFT JOIN universidad.departamento AS dep ON profesor.id_departamento = dep.id WHERE tipo IN ('profesor') AND dep.nombre IS NULL;
+SELECT  dep.nombre, p.nombre, p.apellido1, p.apellido2 FROM universidad.departamento AS dep LEFT JOIN universidad.profesor AS profesor ON dep.id = profesor.id_departamento LEFT JOIN universidad.persona AS p ON profesor.id_profesor = p.id WHERE p.nombre IS NULL;
+SELECT persona.nombre, persona.apellido1, persona.apellido2, asignatura.nombre AS asignatura FROM universidad.persona AS persona LEFT JOIN universidad.asignatura AS asignatura ON persona.id = asignatura.id_profesor WHERE asignatura.id_profesor IS NUll;
+SELECT persona.nombre, asignatura.nombre AS asignatura FROM universidad.persona AS persona RIGHT JOIN universidad.asignatura AS asignatura ON persona.id = asignatura.id_profesor WHERE asignatura.id_profesor IS NUll;
+SELECT dep.nombre, asignatura.nombre FROM universidad.departamento AS dep LEFT JOIN universidad.profesor AS pro ON dep.id = pro.id_departamento LEFT JOIN universidad.asignatura AS asignatura ON pro.id_profesor = asignatura.id_profesor WHERE asignatura.id_profesor IS NULL GROUP BY dep.nombre;
