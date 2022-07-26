@@ -41,10 +41,10 @@ CREATE TABLE client_pizzeria (
     cognom2 TEXT,
     adreça TEXT,
     codi_postal INTEGER,
-    id_localitat INTEGER NOT NULL,
+    id_localitat INTEGER NOT NULL UNIQUE,
     localitat TEXT NOT NULL,
-    id_provincia INTEGER NOT NULL,
-    provincia TEXT,
+    id_provincia INTEGER NOT NULL UNIQUE,
+    provincia TEXT NOT NULL,
     telèfon INTEGER,
-    PRIMARY KEY (id, localitat, provincia)
+    PRIMARY KEY (id)
 );
