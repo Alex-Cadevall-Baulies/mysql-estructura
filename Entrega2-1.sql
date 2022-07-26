@@ -48,3 +48,14 @@ CREATE TABLE client_pizzeria (
     telèfon INTEGER,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE comandes_pizzeria (
+    id_comanda INTEGER NOT NULL AUTO_INCREMENT,
+    data_comanda DATE,
+    entrega INTEGER,
+    quantitat INTEGER,
+    preu INTEGER,
+    id_cliente INTEGER UNSIGNED NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES client_pizzeria(id)
+    PRIMARY KEY (id)
+);
