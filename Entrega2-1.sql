@@ -53,8 +53,18 @@ CREATE TABLE comandes_pizzeria (
     id_comanda INTEGER NOT NULL,
     data_comanda DATE,
     entrega INTEGER,
-    quantitat INTEGER,
+    productes TEXT,
+    quantitat_productes INTEGER,
     preu INTEGER,
     id_cliente INTEGER NOT NULL,
     FOREIGN KEY (id_cliente) REFERENCES client_pizzeria(id)
+);
+
+CREATE TABLE productes_pizzeria (
+    id_producte INTEGER NOT NULL AUTO_INCREMENT,
+    nom TEXT,
+    descripció TEXT,
+    imatge VARCHAR(2038),
+    preu INTEGER,
+    PRIMARY KEY (id_producte)
 );
