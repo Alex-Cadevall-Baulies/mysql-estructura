@@ -55,6 +55,6 @@ CREATE TABLE comandes_pizzeria (
     entrega INTEGER,
     quantitat INTEGER,
     preu INTEGER,
-    id_cliente INTEGER UNSIGNED NOT NULL,
+    id_cliente INTEGER NOT NULL,
     FOREIGN KEY (id_cliente) REFERENCES client_pizzeria(id)
 );
