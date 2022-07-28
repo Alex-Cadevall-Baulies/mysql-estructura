@@ -87,7 +87,7 @@ CREATE TABLE
 
 CREATE TABLE
     botigues_pizzeria (
-        id_botiga INTEGER NOT NULL,
+        id_botiga INTEGER NOT NULL AUTO_INCREMENT,
         adreça VARCHAR(400),
         codi_postal INTEGER,
         id_localitat INTEGER NOT NULL UNIQUE,
@@ -96,3 +96,16 @@ CREATE TABLE
         provincia TEXT NOT NULL,
         PRIMARY KEY(id_botiga)
     );
+
+CREATE TABLE empleats_pizzeria(
+    id_botiga INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+    id_empleat INTEGER NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(200),
+    cognoms VARCHAR(400),
+    NIF INTEGER,
+    Telèfon INTEGER,
+    posició_laboral VARCHAR(200),
+);
+
+CREATE TABLE repartiments ();
