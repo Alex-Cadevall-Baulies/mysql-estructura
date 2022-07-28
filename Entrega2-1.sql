@@ -60,9 +60,18 @@ CREATE TABLE comandes_pizzeria (
     FOREIGN KEY (id_cliente) REFERENCES client_pizzeria(id)
 );
 
+CREATE TABLE categoria_pizzeria (
+id_categoria INTEGER NOT NULL,
+nom_categoria VARCHAR(400) NOT NULL,
+PRIMARY KEY (nom_categoria)
+);
+
+
 CREATE TABLE productes_pizzeria (
     id_producte INTEGER NOT NULL AUTO_INCREMENT,
     nom TEXT,
+    categoria_pizza VARCHAR(400),
+    FOREIGN KEY (categoria_pizza) REFERENCES categoria_pizzeria(nom_categoria),
     descripció TEXT,
     imatge VARCHAR(2038),
     preu INTEGER,
