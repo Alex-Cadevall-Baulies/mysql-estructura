@@ -108,4 +108,7 @@ CREATE TABLE empleats_pizzeria(
     posició_laboral VARCHAR(200),
 );
 
-CREATE TABLE repartiments ();
+CREATE TABLE repartiments (
+    id_botiga INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+);
