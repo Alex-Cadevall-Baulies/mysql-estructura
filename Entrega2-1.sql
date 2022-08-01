@@ -13,7 +13,7 @@ CREATE TABLE
 
 CREATE TABLE
     ulleres_òptica (
-        id_proveidor INT UNSIGNED NOT NULL,
+        id_proveidor INTEGER NOT NULL AUTO_INCREMENT,
         FOREIGN KEY (id_proveidor) REFERENCES proveidor_òptica(id),
         marca TEXT,
         graduacio INTEGER,
@@ -22,7 +22,7 @@ CREATE TABLE
         color_vidre TEXT,
         preu INTEGER
     );
-
+    
 CREATE TABLE
     client_òptica (
         id INTEGER NOT NULL AUTO_INCREMENT,
@@ -105,10 +105,13 @@ CREATE TABLE empleats_pizzeria(
     cognoms VARCHAR(400),
     NIF INTEGER,
     Telèfon INTEGER,
-    posició_laboral VARCHAR(200)
+    posició_laboral VARCHAR(200),
+    PRIMARY KEY (id_empleat)
 );
 
 CREATE TABLE repartiments (
-    id_botiga INT UNSIGNED NOT NULL,
-    FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga)
+    id_botiga INTEGER NOT NULL AUTO_INCREMENT,
+    FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+    id_empleat INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat)
 );
