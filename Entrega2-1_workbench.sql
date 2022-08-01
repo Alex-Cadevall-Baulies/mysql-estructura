@@ -98,9 +98,9 @@ CREATE TABLE
     );
 
 CREATE TABLE empleats_pizzeria(
-    id_botiga INT UNSIGNED NOT NULL,
+    id_botiga INTEGER NOT NULL AUTO_INCREMENT,
     FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
-    id_empleat INTEGER NOT NULL AUTO_INCREMENT,
+    id_empleat INTEGER NOT NULL,
     nom VARCHAR(200),
     cognoms VARCHAR(400),
     NIF INTEGER,
@@ -112,6 +112,6 @@ CREATE TABLE empleats_pizzeria(
 CREATE TABLE repartiments (
     id_botiga INTEGER NOT NULL AUTO_INCREMENT,
     FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
-    id_empleat INT UNSIGNED NOT NULL,
+    id_empleat INTEGER NOT NULL,
     FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat)
 );
