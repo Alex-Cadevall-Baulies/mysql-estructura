@@ -21,7 +21,7 @@ CREATE TABLE
         montura TEXT,
         color_montura TEXT,
         color_vidre TEXT,
-        preu INTEGER
+        preu INTEGER,
         PRIMARY KEY (id_ulleres)
     );
 

@@ -13,7 +13,8 @@ CREATE TABLE
 
 CREATE TABLE
     ulleres_òptica (
-        id_proveidor INTEGER NOT NULL AUTO_INCREMENT,
+        id_ulleres INTEGER NOT NULL AUTO_INCREMENT,
+        id_proveidor INTEGER NOT NULL,
         FOREIGN KEY (id_proveidor) REFERENCES proveidor_òptica(id),
         marca TEXT,
         graduacio INTEGER,
@@ -21,11 +22,14 @@ CREATE TABLE
         color_montura TEXT,
         color_vidre TEXT,
         preu INTEGER
+        PRIMARY KEY (id_ulleres)
     );
 
 CREATE TABLE
     client_òptica (
         id INTEGER NOT NULL AUTO_INCREMENT,
+        id_ulleres INTEGER NOT NULL,
+        FOREIGN KEY (id_ulleres) REFERENCES ulleres_òptica(id_ulleres),
         nom TEXT,
         adreça TEXT,
         telèfon INTEGER,
