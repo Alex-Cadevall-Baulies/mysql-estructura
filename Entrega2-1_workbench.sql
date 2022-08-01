@@ -63,7 +63,13 @@ CREATE TABLE
         quantitat_productes INTEGER,
         preu INTEGER,
         id_cliente INTEGER NOT NULL,
-        FOREIGN KEY (id_cliente) REFERENCES client_pizzeria(id)
+        FOREIGN KEY (id_cliente) REFERENCES client_pizzeria(id),
+        id_botiga INTEGER NOT NULL AUTO_INCREMENT,
+        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+        id_empleat INTEGER NOT NULL,
+        FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat),
+        id_producte INTEGER NOT NULL,
+        FOREIGN KEY (id_producte) REFERENCES productes_pizzeria(id_producte)
     );
 
 CREATE TABLE
@@ -97,21 +103,26 @@ CREATE TABLE
         PRIMARY KEY(id_botiga)
     );
 
-CREATE TABLE empleats_pizzeria(
-    id_botiga INTEGER NOT NULL AUTO_INCREMENT,
-    FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
-    id_empleat INTEGER NOT NULL,
-    nom VARCHAR(200),
-    cognoms VARCHAR(400),
-    NIF INTEGER,
-    Telèfon INTEGER,
-    posició_laboral VARCHAR(200),
-    PRIMARY KEY (id_empleat)
-);
+CREATE TABLE
+    empleats_pizzeria(
+        id_botiga INTEGER NOT NULL AUTO_INCREMENT,
+        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+        id_empleat INTEGER NOT NULL,
+        nom VARCHAR(200),
+        cognoms VARCHAR(400),
+        NIF INTEGER,
+        Telèfon INTEGER,
+        posició_laboral VARCHAR(200),
+        PRIMARY KEY (id_empleat)
+    );
 
-CREATE TABLE repartiments (
-    id_botiga INTEGER NOT NULL AUTO_INCREMENT,
-    FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
-    id_empleat INTEGER NOT NULL,
-    FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat)
-);
+CREATE TABLE
+    repartiments (
+        id_repartiment INTEGER NOT NULL,
+        id_botiga INTEGER NOT NULL AUTO_INCREMENT,
+        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+        id_empleat INTEGER NOT NULL,
+        FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat),
+        id_comanda INTEGER NOT NULL,
+        FOREIGN KEY (id_comanda) REFERENCES comandes_pizzeria(id_comanda)
+    );
