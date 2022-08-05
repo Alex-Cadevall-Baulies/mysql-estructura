@@ -1,4 +1,5 @@
-use Entrega2_3
+use Entrega2_3_Optica
+.comment("nivell-1_exercici-1")
 
 db.proveidor.insertOne({
     nom_proveidor: "",
@@ -26,4 +27,27 @@ db.clients.insertOne({
     recomenat: "",
     venedor: ""
 })
+
+use Entrega2_3_Pizzeria
+.comment("nivell-1_exercici-2")
+
+db.clients.insertOne({
+    nom_client: "",
+    cognom_client: "",
+    adreça_client: "",
+    provincia_client: "",
+    localitat_client: "",
+    codi_postal_client: "",
+    telèfon_client: ""
+})
+
+db.comandes.insertOne({
+    id_comanda: "",
+    data_comanda: "",
+    tipus_comanda: "",
+    productes_comanda: "",
+    preu: ""
+})
+
+
 
