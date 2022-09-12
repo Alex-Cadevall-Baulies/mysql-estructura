@@ -23,7 +23,7 @@ CREATE TABLE
         color_montura VARCHAR(500),
         color_vidre VARCHAR(500),
         preu_producte INTEGER,
-        PRIMARY KEY (id_ulleres)
+        PRIMARY KEY (id_producte)
     );
 
 CREATE TABLE
@@ -45,7 +45,7 @@ CREATE TABLE
         nom_trebalador VARCHAR(400),
         cognom_trebalador VARCHAR(1000),
         PRIMARY KEY (id_treballador)
-    )
+    );
 
 CREATE TABLE
     ventes_òptica (
@@ -56,9 +56,9 @@ CREATE TABLE
         id_producte INTEGER NOT NULL,
         FOREIGN KEY (id_producte) REFERENCES ulleres_òptica(id_producte),
         id_treballador INTEGER NOT NULL,
-        FOREIGN KEY (id_treballador) REFERENCES client_òptica(id_treballador),
+        FOREIGN KEY (id_treballador) REFERENCES traballadors_òptica(id_treballador),
         PRIMARY KEY (id_venta)
-    )
+    );
 
 -- Exercici 2 - Pizzeria
 
