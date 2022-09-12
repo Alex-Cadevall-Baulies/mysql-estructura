@@ -1,4 +1,5 @@
 -- Exercici 1 - Òptica
+CREATE DATABASE òptica_cul_ampolla;
 
 CREATE TABLE
     proveidor_òptica (

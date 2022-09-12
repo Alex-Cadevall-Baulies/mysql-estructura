@@ -14,3 +14,8 @@
 2. instalar extensió mongodb a visual code
 3. Anar a Atlas -> connect -> connect your application
 4. Connectar usant el link donat (canviar <password>)
+
+## falta SQL:
+1. script (omplir taules)
+2. Script crear base de dades 
+3. script consultes requisits
