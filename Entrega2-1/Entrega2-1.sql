@@ -3,43 +3,62 @@ CREATE DATABASE òptica_cul_ampolla;
 
 CREATE TABLE
     proveidor_òptica (
-        id INTEGER NOT NULL AUTO_INCREMENT,
-        nom TEXT,
-        adreça TEXT,
-        telèfon INTEGER,
-        fax INTEGER,
-        nif INTEGER,
-        PRIMARY KEY (id)
+        id_proveidor INTEGER NOT NULL AUTO_INCREMENT,
+        nom_proveidor TEXT,
+        adreça_proveidor TEXT,
+        telèfon_proveidor INTEGER,
+        fax_proveidor INTEGER,
+        nif_proveidor INTEGER,
+        PRIMARY KEY (id_proveidor)
     );
 
 CREATE TABLE
     ulleres_òptica (
-        id_ulleres INTEGER NOT NULL AUTO_INCREMENT,
         id_proveidor INTEGER NOT NULL,
-        FOREIGN KEY (id_proveidor) REFERENCES proveidor_òptica(id),
-        marca TEXT,
-        graduacio INTEGER,
-        montura TEXT,
-        color_montura TEXT,
-        color_vidre TEXT,
-        preu INTEGER,
+        FOREIGN KEY (id_proveidor) REFERENCES proveidor_òptica(id_proveidor),
+        id_producte INTEGER NOT NULL AUTO_INCREMENT,
+        marca_producte VARCHAR(500),
+        graduacio_producte INTEGER,
+        montura_producte VARCHAR(500),
+        color_montura VARCHAR(500),
+        color_vidre VARCHAR(500),
+        preu_producte INTEGER,
         PRIMARY KEY (id_ulleres)
     );
 
 CREATE TABLE
     client_òptica (
-        id INTEGER NOT NULL AUTO_INCREMENT,
-        id_ulleres INTEGER NOT NULL,
-        FOREIGN KEY (id_ulleres) REFERENCES ulleres_òptica(id_ulleres),
-        nom TEXT,
-        adreça TEXT,
-        telèfon INTEGER,
-        email TEXT,
+        id_client INTEGER NOT NULL AUTO_INCREMENT,
+        nom_client TEXT,
         data_registre DATE,
-        recomenat TEXT,
-        venta TEXT,
-        PRIMARY KEY (id)
+        adreça_client TEXT,
+        telèfon_client INTEGER,
+        email_client TEXT,
+        id_recomanat INTEGER,
+        FOREIGN KEY (id_recomanat) REFERENCES client_òptica(id_client),
+        PRIMARY KEY (id_client)
     );
+
+CREATE TABLE
+    traballadors_òptica (
+        id_treballador INTEGER NOT NULL AUTO_INCREMENT,
+        nom_trebalador VARCHAR(400),
+        cognom_trebalador VARCHAR(1000),
+        PRIMARY KEY (id_treballador)
+    )
+
+CREATE TABLE
+    ventes_òptica (
+        id_venta INTEGER NOT NULL AUTO_INCREMENT,
+        id_client INTEGER NOT NULL,
+        FOREIGN KEY (id_client) REFERENCES client_òptica(id_client),
+        data_venta DATE,
+        id_producte INTEGER NOT NULL,
+        FOREIGN KEY (id_producte) REFERENCES ulleres_òptica(id_producte),
+        id_treballador INTEGER NOT NULL,
+        FOREIGN KEY (id_treballador) REFERENCES client_òptica(id_treballador),
+        PRIMARY KEY (id_venta)
+    )
 
 -- Exercici 2 - Pizzeria
 
