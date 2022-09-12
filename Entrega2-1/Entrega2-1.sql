@@ -8,7 +8,7 @@ CREATE TABLE
         adreça_proveidor TEXT,
         telèfon_proveidor INTEGER,
         fax_proveidor INTEGER,
-        nif_proveidor INTEGER,
+        nif_proveidor VARCHAR(9),
         PRIMARY KEY (id_proveidor)
     );
 
