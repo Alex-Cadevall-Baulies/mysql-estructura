@@ -65,8 +65,8 @@ CREATE DATABASE pizzeria;
 
 CREATE TABLE
     localitats_pizzeria (
-        nom_localitat VARCHAR (500),
-        nom_provincia VARCHAR (500)
+        nom_localitat VARCHAR (50) UNIQUE,
+        nom_provincia VARCHAR (50) UNIQUE
     );
 
 CREATE TABLE
@@ -77,9 +77,9 @@ CREATE TABLE
         telèfon_client INTEGER,
         adreça_client TEXT,
         codi_postal_client INTEGER,
-        nom_localitat INTEGER NOT NULL,
+        nom_localitat VARCHAR (50),
         FOREIGN KEY (nom_localitat) REFERENCES localitats_pizzeria(nom_localitat),
-        nom_provincia INTEGER NOT NULL,
+        nom_provincia VARCHAR (50),
         FOREIGN KEY (nom_provincia) REFERENCES localitats_pizzeria(nom_provincia),
         PRIMARY KEY (id_client)
     );
@@ -89,9 +89,9 @@ CREATE TABLE
         id_botiga INTEGER NOT NULL AUTO_INCREMENT,
         adreça_botiga TEXT,
         codi_postal_botiga INTEGER,
-        nom_localitat INTEGER NOT NULL,
+        nom_localitat VARCHAR (50),
         FOREIGN KEY (nom_localitat) REFERENCES localitats_pizzeria(nom_localitat),
-        nom_provincia INTEGER NOT NULL,
+        nom_provincia VARCHAR (50),
         FOREIGN KEY (nom_provincia) REFERENCES localitats_pizzeria(nom_provincia),
         PRIMARY KEY(id_botiga)
     );
@@ -115,7 +115,7 @@ CREATE TABLE
         nom_producte TEXT,
         categoria_pizza VARCHAR(400),
         descripció_producte TEXT,
-        imatge_producte varbinary(max),
+        imatge_producte VARBINARY(Max),
         preu_producte INTEGER,
         PRIMARY KEY (id_producte)
     );
