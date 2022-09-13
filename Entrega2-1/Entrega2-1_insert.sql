@@ -39,3 +39,9 @@ INSERT INTO ventes_òptica (id_client, data_venta, id_producte, id_treballador )
 VALUES(3, '2015-05-20', 2, 1);
 INSERT INTO ventes_òptica (id_client, data_venta, id_producte, id_treballador )
 VALUES(4, '2020-05-20', 3, 1);
+INSERT INTO ventes_òptica (id_client, data_venta, id_producte, id_treballador )
+VALUES(1, '2020-05-20', 3, 1);
+INSERT INTO ventes_òptica (id_client, data_venta, id_producte, id_treballador )
+VALUES(1, '2020-07-20', 3, 1);
+INSERT INTO ventes_òptica (id_client, data_venta, id_producte, id_treballador )
+VALUES(1, '2020-12-19', 3, 1);
