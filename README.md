@@ -10,6 +10,7 @@
   - Nivell 3
 
 ## Entrega 2.3: Estructura de dades MongoDB
+  - Nivell 1
 
 ## Entrega 2.4: MongoDB queries
   - Nivell 1
