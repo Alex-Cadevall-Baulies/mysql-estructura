@@ -1,4 +1,4 @@
--- Exercici 1 - Òptica
+-- Nivell 1 / Exercici 1 - Òptica
 CREATE DATABASE òptica_cul_ampolla;
 
 CREATE TABLE
@@ -60,29 +60,53 @@ CREATE TABLE
         PRIMARY KEY (id_venta)
     );
 
--- Exercici 2 - Pizzeria
+-- Nivell 1 / Exercici 2 - Pizzeria
+CREATE DATABASE pizzeria;
 
 CREATE TABLE
-    client_pizzeria (
-        id INTEGER NOT NULL AUTO_INCREMENT,
-        nom TEXT,
-        cognom1 TEXT,
-        cognom2 TEXT,
-        adreça TEXT,
-        codi_postal INTEGER,
-        id_localitat INTEGER NOT NULL UNIQUE,
-        localitat TEXT NOT NULL,
-        id_provincia INTEGER NOT NULL UNIQUE,
-        provincia TEXT NOT NULL,
-        telèfon INTEGER,
-        PRIMARY KEY (id)
+    localitats_pizzeria (
+        nom_localitat VARCHAR (500),
+        nom_provincia VARCHAR (500)
     );
 
 CREATE TABLE
-    categoria_pizzeria (
-        id_categoria INTEGER NOT NULL,
-        nom_categoria VARCHAR(400) NOT NULL,
-        PRIMARY KEY (nom_categoria)
+    client_pizzeria (
+        id_client INTEGER NOT NULL AUTO_INCREMENT,
+        nom_client TEXT,
+        cognoms_client TEXT,
+        telèfon_client INTEGER,
+        adreça_client TEXT,
+        codi_postal_client INTEGER,
+        nom_localitat INTEGER NOT NULL,
+        FOREIGN KEY (nom_localitat) REFERENCES localitats_pizzeria(nom_localitat),
+        nom_provincia INTEGER NOT NULL,
+        FOREIGN KEY (nom_provincia) REFERENCES localitats_pizzeria(nom_provincia),
+        PRIMARY KEY (id_client)
+    );
+
+CREATE TABLE
+    botigues_pizzeria (
+        id_botiga INTEGER NOT NULL AUTO_INCREMENT,
+        adreça_botiga TEXT,
+        codi_postal_botiga INTEGER,
+        nom_localitat INTEGER NOT NULL,
+        FOREIGN KEY (nom_localitat) REFERENCES localitats_pizzeria(nom_localitat),
+        nom_provincia INTEGER NOT NULL,
+        FOREIGN KEY (nom_provincia) REFERENCES localitats_pizzeria(nom_provincia),
+        PRIMARY KEY(id_botiga)
+    );
+
+CREATE TABLE
+    ventes_pizzeria (
+        id_client INTEGER NOT NULL,
+        FOREIGN KEY (id_client) REFERENCES client_pizzeria(id_client),
+        id_botiga INTEGER NOT NULL,
+        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+        id_comanda INTEGER NOT NULL AUTO_INCREMENT,
+        data_comanda DATETIME NOT NULL,
+        tipus_comanda VARCHAR (200),
+        data_entrega DATETIME,
+        PRIMARY KEY(id_comanda)
     );
 
 CREATE TABLE
@@ -95,18 +119,6 @@ CREATE TABLE
         imatge VARCHAR(2038),
         preu INTEGER,
         PRIMARY KEY (id_producte)
-    );
-
-CREATE TABLE
-    botigues_pizzeria (
-        id_botiga INTEGER NOT NULL AUTO_INCREMENT,
-        adreça VARCHAR(400),
-        codi_postal INTEGER,
-        id_localitat INTEGER NOT NULL UNIQUE,
-        localitat TEXT NOT NULL,
-        id_provincia INTEGER NOT NULL UNIQUE,
-        provincia TEXT NOT NULL,
-        PRIMARY KEY(id_botiga)
     );
 
 CREATE TABLE
