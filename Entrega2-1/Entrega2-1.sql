@@ -112,12 +112,11 @@ CREATE TABLE
 CREATE TABLE
     productes_pizzeria (
         id_producte INTEGER NOT NULL AUTO_INCREMENT,
-        nom TEXT,
+        nom_producte TEXT,
         categoria_pizza VARCHAR(400),
-        FOREIGN KEY (categoria_pizza) REFERENCES categoria_pizzeria(nom_categoria),
-        descripció TEXT,
-        imatge VARCHAR(2038),
-        preu INTEGER,
+        descripció_producte TEXT,
+        imatge_producte varbinary(max),
+        preu_producte INTEGER,
         PRIMARY KEY (id_producte)
     );
 
@@ -126,41 +125,22 @@ CREATE TABLE
         id_botiga INTEGER NOT NULL,
         FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
         id_empleat INTEGER NOT NULL AUTO_INCREMENT,
-        nom VARCHAR(200),
-        cognoms VARCHAR(400),
-        NIF INTEGER,
-        Telèfon INTEGER,
+        nom_empleat VARCHAR(200),
+        cognoms_empleat VARCHAR(400),
+        nif_empleat INTEGER,
+        telèfon_empleat INTEGER,
         posició_laboral VARCHAR(200),
         PRIMARY KEY (id_empleat)
     );
-    
-    CREATE TABLE
-    comandes_pizzeria (
-        id_comanda INTEGER NOT NULL AUTO_INCREMENT,
-        data_comanda DATE,
-        entrega INTEGER,
-        productes TEXT,
-        quantitat_productes INTEGER,
-        preu INTEGER,
-        id_cliente INTEGER NOT NULL,
-        FOREIGN KEY (id_cliente) REFERENCES client_pizzeria(id),
-        id_botiga INTEGER NOT NULL,
-        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
-        id_empleat INTEGER NOT NULL,
-        FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat),
-        id_producte INTEGER NOT NULL,
-        FOREIGN KEY (id_producte) REFERENCES productes_pizzeria(id_producte),
-        PRIMARY KEY (id_comanda)
-    );
 
 CREATE TABLE
-    repartiments (
-        id_repartiment INTEGER NOT NULL AUTO_INCREMENT,
+    comandes_pizzeria(
+        id_comanda INTEGER NOT NULL,
+        FOREIGN KEY (id_comanda) REFERENCES ventes_pizzeria(id_comanda),
         id_botiga INTEGER NOT NULL,
         FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+        id_producte INTEGER NOT NULL,
+        FOREIGN KEY (id_producte) REFERENCES productes_pizzeria(id_producte),
         id_empleat INTEGER NOT NULL,
         FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat),
-        id_comanda INTEGER NOT NULL,
-        FOREIGN KEY (id_comanda) REFERENCES comandes_pizzeria(id_comanda),
-        PRIMARY KEY (id_repartiment)
     );
