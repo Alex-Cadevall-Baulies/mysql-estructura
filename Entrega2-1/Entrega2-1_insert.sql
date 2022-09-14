@@ -1,3 +1,5 @@
+-- Òptica
+
 -- Proveïdors
 INSERT INTO proveidor_òptica (nom_proveidor, adreça_proveidor, telèfon_proveidor, nif_proveidor)
 VALUES('Ulleres Manolo', 'Carrer Garrotxa 24', 654748229, 'D29896658');
@@ -45,3 +47,47 @@ INSERT INTO ventes_òptica (id_client, data_venta, id_producte, id_treballador )
 VALUES(1, '2020-07-20', 3, 1);
 INSERT INTO ventes_òptica (id_client, data_venta, id_producte, id_treballador )
 VALUES(1, '2020-12-19', 3, 1);
+
+-- Pizzeria
+
+-- Localitats
+INSERT INTO localitats_pizzeria (nom_localitat, nom_provincia)
+VALUES('El Campillar', 'Alava');
+INSERT INTO localitats_pizzeria (nom_localitat, nom_provincia)
+VALUES('Arzua', 'La Coruña');
+INSERT INTO localitats_pizzeria (nom_localitat, nom_provincia)
+VALUES('Foyos', 'Valencia');
+
+-- Clients
+INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+VALUES('Elenorcio', 'Ricardiano Maganes', 652352212, 'Foyos', 'Valencia');
+INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+VALUES('Bernardo', 'Gongora Murciano', 652352212, 'Foyos', 'Valencia');
+INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+VALUES('Ostencia', 'Perez Fernandez', 672352212, 'Arzua', 'La Coruña');
+INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+VALUES('Gertrudis', 'Comes Ferrer', 672352212, 'El Campillar', 'Alava');
+
+-- Botigues
+INSERT INTO botigues_pizzeria (adreça_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
+VALUES('calle maravillas 23', 46134, 'Foyos', 'Valencia');
+INSERT INTO botigues_pizzeria (adreça_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
+VALUES('avenida monarquica 14', 15810, 'Arzua', 'La Coruña');
+INSERT INTO botigues_pizzeria (adreça_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
+VALUES('carretera plaza españa', 01308, 'El Campillar', 'Alava');
+
+-- Ventes
+INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
+VALUES(1, 1, '2022-09-20 13:00', 'domicili', '2022-09-20 13:40' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
+VALUES(2, 1, '2022-09-20 13:10', 'recollida', '2022-09-20 13:15' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
+VALUES(1, 1, '2022-09-21 13:12', 'domicili', '2022-09-20 13:57' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
+VALUES(3, 2, '2022-10-01 21:02', 'domicili', '2022-09-20 22:00' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
+VALUES(4, 3, '2022-10-04 22:10', 'recollida', '2022-09-20 22:21' );
+
+-- Productes
+INSERT INTO productes_pizzeria (nom_producte, categoria_pizza, descripció_producte, imatge_producte, preu_producte)
+VALUES();
