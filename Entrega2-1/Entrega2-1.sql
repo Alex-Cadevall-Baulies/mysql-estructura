@@ -115,7 +115,7 @@ CREATE TABLE
         nom_producte TEXT,
         categoria_pizza VARCHAR(400),
         descripció_producte TEXT,
-        imatge_producte VARBINARY(Max),
+        imatge_producte VARBINARY(8000),
         preu_producte INTEGER,
         PRIMARY KEY (id_producte)
     );
@@ -142,5 +142,5 @@ CREATE TABLE
         id_producte INTEGER NOT NULL,
         FOREIGN KEY (id_producte) REFERENCES productes_pizzeria(id_producte),
         id_empleat INTEGER NOT NULL,
-        FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat),
+        FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat)
     );
