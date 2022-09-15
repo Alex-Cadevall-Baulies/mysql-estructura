@@ -4,7 +4,7 @@ use dbEntrega2_3_Optica
 //www.youtube.com/watch?v=RsWdj7V2Ojg&list=PLs3IFJPw3G9KSf2sa1V5DLT0RUmpVm-IZ&index=2
 db.createCollection('proveidor_òptica')
 db.createCollection('ulleres_òptica')
-db.createCollection('clients_òptica')
+db.createCollection('client_òptica')
 db.createCollection('ventes_òptica')
 
 // interelacionar usant objectID
@@ -13,7 +13,7 @@ db.createCollection('ventes_òptica')
 use dbEntrega2_3_Pizzeria
 .comment("nivell-1_exercici-2")
 
-db.createCollection('clients_pizzeria')
+db.createCollection('client_pizzeria')
 db.createCollection('comandes_pizzeria')
 db.createCollection('productes_pizzeria')
 db.createCollection('categories_pizza')
