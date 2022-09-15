@@ -1,5 +1,5 @@
 // Ulleres 
-db.proveidor.insertOne({
+db.proveidor_òptica.insertOne({
     nom_proveidor: "",
     adreça_proveidor: "",
     telèfon_proveidor: "",
@@ -7,31 +7,31 @@ db.proveidor.insertOne({
     nif_proveidor: ""
 })
 
-db.ulleres.insertOne({
+db.ulleres_òptica.insertOne({
+    proveidor_id: "",
     marca: "",
-    nom_proveidor: "",
     graduació: "",
     montura: "",
-    color: "",
+    color_montura: "",
+    color_vidre: "",
     preu: ""
 })
 
-db.clients.insertOne({
+db.client_òptica.insertOne({
     nom_client: "",
     adreça_client: "",
     telèfon_client: "",
     email_client: "",
     data_registre_client: "",
-    recomenat: "",
-    venedor: ""
+    client_id_recomenat: ""
 })
 
-db.ventes.insertOne({
-    nom_client: "",
-    adreça_client: "",
-    telèfon_client: "",
-    email_client: "",
-    data_registre_client: "",
-    recomenat: "",
-    venedor: ""
+db.empleat_òptica.insertOne({
+    nom_empleat: ""
+})
+
+db.ventes_òptica.insertOne({
+    client_id: "",
+    empleat_id: "",
+    ulleres_id: ""
 })
