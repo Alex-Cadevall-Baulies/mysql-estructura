@@ -59,13 +59,13 @@ INSERT INTO localitats_pizzeria (nom_localitat, nom_provincia)
 VALUES('Foyos', 'Valencia');
 
 -- Clients
-INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+INSERT INTO client_pizzeria (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
 VALUES('Elenorcio', 'Ricardiano Maganes', 652352212, 'Foyos', 'Valencia');
-INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+INSERT INTO client_pizzeria (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
 VALUES('Bernardo', 'Gongora Murciano', 652352212, 'Foyos', 'Valencia');
-INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+INSERT INTO client_pizzeria (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
 VALUES('Ostencia', 'Perez Fernandez', 672352212, 'Arzua', 'La Coruña');
-INSERT INTO client_òptica (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
+INSERT INTO client_pizzeria (nom_client, cognoms_client, telèfon_client, nom_localitat, nom_provincia)
 VALUES('Gertrudis', 'Comes Ferrer', 672352212, 'El Campillar', 'Alava');
 
 -- Botigues
@@ -90,4 +90,46 @@ VALUES(4, 3, '2022-10-04 22:10', 'recollida', '2022-09-20 22:21' );
 
 -- Productes
 INSERT INTO productes_pizzeria (nom_producte, categoria_pizza, descripció_producte, imatge_producte, preu_producte)
-VALUES();
+VALUES('pizza margarita', 'vegetariana', 'pizza: tomate, queso, oregano', 'https://recetinas.com/wp-content/uploads/2017/09/pizza-margarita.jpg', 10);
+INSERT INTO productes_pizzeria (nom_producte, categoria_pizza, descripció_producte, imatge_producte, preu_producte)
+VALUES('pizza barbacoa', 'carnica', 'pizza: tomate, queso, oregano, carne picada, especias, cebolla, salsa bbq', 'https://okdiario.com/img/2015/09/08/receta-pizza-barbacoa.jpg', 12);
+INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+VALUES('hamburguesa simple', 'hamburguesa: queso, carne, lechuga, tomate', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSHflbYX39o5ieWh9ZfdduxInWkKXOVpfc8g&usqp=CAU', 8);
+INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+VALUES('coca-cola', 'bebida', 'https://www.cocacola.es/content/dam/one/es/es2/coca-cola/products/productos/dic-2021/CC_Origal.jpg', 1.50);
+INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+VALUES('agua', 'bebida', 'https://img.freepik.com/free-psd/plastic-water-bottle-mockup_439185-2468.jpg?w=2000', 1.00);
+INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+VALUES('cerveza', 'bebida', 'https://static.ulabox.com/media/173824_xl.jpg', 2.00);
+
+--Empleats
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+VALUES(1, 'Renata', 'Gongora Perez', 'cuiner/a');
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+VALUES(1, 'Leandro', 'Vincenço Gomez', 'repartidor/a');
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+VALUES(2, 'Joaquin', 'Vincenço Perez', 'cuiner/a');
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+VALUES(2, 'Romera', 'Perez Gomez', 'repartidor/a');
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+VALUES(3, 'Laura', 'Perez Perez', 'cuiner/a');
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+VALUES(3, 'Carlos', 'Perez Vincenço', 'repartidor/a');
+
+-- Comandes
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(1, 1, 1, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(1, 1, 5, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(2, 1, 2, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(2, 1, 3, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(3, 1, 6, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(3, 1, 2, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(4, 2, 2, 4);
+INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
+VALUES(4, 3, 3, 6);
