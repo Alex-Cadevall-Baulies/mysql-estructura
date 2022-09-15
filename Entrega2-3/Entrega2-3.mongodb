@@ -6,6 +6,7 @@ db.createCollection('proveidor_òptica')
 db.createCollection('ulleres_òptica')
 db.createCollection('client_òptica')
 db.createCollection('ventes_òptica')
+db.createCollection('empleat_òptica')
 
 // interelacionar usant objectID
 // https://www.mongodb.com/docs/manual/core/data-model-design/#data-modeling-referencing
@@ -18,4 +19,4 @@ db.createCollection('comandes_pizzeria')
 db.createCollection('productes_pizzeria')
 db.createCollection('categories_pizza')
 db.createCollection('botigues_pizzeria')
-db.createCollection('empleats_pizzeria')
+db.createCollection('empleat_pizzeria')
