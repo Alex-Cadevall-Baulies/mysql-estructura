@@ -1,0 +1,37 @@
+// Ulleres 
+db.proveidor.insertOne({
+    nom_proveidor: "",
+    adreça_proveidor: "",
+    telèfon_proveidor: "",
+    fax_proveidor: "",
+    nif_proveidor: ""
+})
+
+db.ulleres.insertOne({
+    marca: "",
+    nom_proveidor: "",
+    graduació: "",
+    montura: "",
+    color: "",
+    preu: ""
+})
+
+db.clients.insertOne({
+    nom_client: "",
+    adreça_client: "",
+    telèfon_client: "",
+    email_client: "",
+    data_registre_client: "",
+    recomenat: "",
+    venedor: ""
+})
+
+db.ventes.insertOne({
+    nom_client: "",
+    adreça_client: "",
+    telèfon_client: "",
+    email_client: "",
+    data_registre_client: "",
+    recomenat: "",
+    venedor: ""
+})
