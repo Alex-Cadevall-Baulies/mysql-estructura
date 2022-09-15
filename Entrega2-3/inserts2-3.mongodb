@@ -5,7 +5,7 @@ db.proveidor_òptica.insertOne({
     telèfon_proveidor: "",
     fax_proveidor: "",
     nif_proveidor: ""
-})
+});
 
 db.ulleres_òptica.insertOne({
     proveidor_id: "",
@@ -15,7 +15,7 @@ db.ulleres_òptica.insertOne({
     color_montura: "",
     color_vidre: "",
     preu: ""
-})
+});
 
 db.client_òptica.insertOne({
     nom_client: "",
@@ -24,14 +24,28 @@ db.client_òptica.insertOne({
     email_client: "",
     data_registre_client: "",
     client_id_recomenat: ""
-})
+});
 
 db.empleat_òptica.insertOne({
     nom_empleat: ""
-})
+});
 
 db.ventes_òptica.insertOne({
     client_id: "",
     empleat_id: "",
     ulleres_id: ""
-})
+});
+
+// Pizza
+
+db.clients_pizzeria.insertOne({
+    nom_client: "",
+    cognom_client: "",
+    adreça_client: "",
+    codi_postal_client: "",
+    localitat_client: "",
+    província_client: "",
+    telèfon_client: ""
+});
+
+
