@@ -93,6 +93,7 @@ db.ventes_òptica.insertOne({
 
 // Pizza
 
+// Clients Pizzeria
 db.clients_pizzeria.insertOne({
     nom_client: "",
     cognom_client: "",
@@ -103,14 +104,32 @@ db.clients_pizzeria.insertOne({
     telèfon_client: ""
 });
 
-db.comandes_pizzeria.insertOne({
-    id_client: "",
-    tipus_comanda: "",
-    data_comanda: "",
-    productes_comanda: ""
-    preu_comanda: ""
+// Categories Pizza
+db.categories_pizzeria.insertOne({
+    nom_categoria: ""
 });
 
+// Productes Pizzeria
+db.productes_pizzeria.insertOne({
+    nom_producte: "",
+    tipus_producte: "",
+    categoria_producte: ""
+    descripció_producte: "",
+    imatge_producte: ""
+    preu_producte: ""
+});
+
+// Botigues Pizzeria
+db.botiga_pizzeria.insertOne({
+    nom_botiga: "",
+    adreça_botiga: "",
+    codi_postal_botiga: "",
+    localitat_botiga: "",
+    província_botiga: ""
+});
+
+
+// Comandes Pizzeria
 db.comandes_pizzeria.insertOne({
     id_client: "",
     tipus_comanda: "",
