@@ -103,4 +103,18 @@ db.clients_pizzeria.insertOne({
     telèfon_client: ""
 });
 
-//a
+db.comandes_pizzeria.insertOne({
+    id_client: "",
+    tipus_comanda: "",
+    data_comanda: "",
+    productes_comanda: ""
+    preu_comanda: ""
+});
+
+db.comandes_pizzeria.insertOne({
+    id_client: "",
+    tipus_comanda: "",
+    data_comanda: "",
+    productes_comanda: ""
+    preu_comanda: ""
+});
