@@ -95,18 +95,36 @@ db.ventes_òptica.insertOne({
 
 // Clients Pizzeria
 db.clients_pizzeria.insertOne({
-    nom_client: "",
-    cognom_client: "",
-    adreça_client: "",
-    codi_postal_client: "",
-    localitat_client: "",
-    província_client: "",
-    telèfon_client: ""
+    nom_client: "Lola",
+    cognom_client: "Jerez del Castillo",
+    adreça_client: "Carrer Lorega 12",
+    codi_postal_client: "08090",
+    localitat_client: "Barcelona",
+    província_client: "Barcelona",
+    telèfon_client: "657787377"
+});
+
+db.clients_pizzeria.insertOne({
+    nom_client: "Julian",
+    cognom_client: "Romero Gomez",
+    adreça_client: "Carrer Rosalia 122",
+    codi_postal_client: "08014",
+    localitat_client: "Cornella",
+    província_client: "Barcelona",
+    telèfon_client: "657787377"
 });
 
 // Categories Pizza
 db.categories_pizzeria.insertOne({
-    nom_categoria: ""
+    nom_categoria: "regular"
+});
+
+db.categories_pizzeria.insertOne({
+    nom_categoria: "vegetariana"
+});
+
+db.categories_pizzeria.insertOne({
+    nom_categoria: "vegana"
 });
 
 // Productes Pizzeria
