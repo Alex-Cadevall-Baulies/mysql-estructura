@@ -142,66 +142,89 @@ db.categories_pizzeria.insertOne({
 
 // Productes Pizzeria
 db.productes_pizzeria.insertOne({
+    _id: "1",
     nom_producte: "Pizza Barbacoa",
     tipus_producte: "pizza",
     categoria_producte: "1",
     descripció_producte: ["carn picada", "formatge", "ceba", "baco", "salsa bbq"],
-    imatge_producte: "shorturl.at/kmW14"
+    imatge_poducte: "shorturl.at/FLMX0",
     preu_producte: "10.50"
 });
 
 db.productes_pizzeria.insertOne({
+    _id: "2",
     nom_producte: "Pizza Vegetal",
     tipus_producte: "pizza",
     categoria_producte: "3",
-    descripció_producte: "formatge vega, pebrot, ceba, salsa tomaquet, seitan",
-    imatge_producte: "https://jessicainthekitchen.com/wp-content/uploads/2020/05/Vegan-Pizza-3-1.jpg"
+    descripció_producte: ["formatge vega", "pebrot", "ceba", "salsa tomaquet", "seitan"],
+    imatge_producte: "shorturl.at/ehiZ7",
     preu_producte: "12.50"
 });
 
 db.productes_pizzeria.insertOne({
+    _id: "3",
     nom_producte: "Hamburguesa simple",
     tipus_producte: "hamburguesa",
-    descripció_producte: "carn, formatge",
-    imatge_producte: "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2NoZWVzZWJ1cmdlci0xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6ODI4fX19"
+    descripció_producte: ["carn", "formatge"],
+    imatge_producte: "shorturl.at/dqyPY",
     preu_producte: "8"
 });
 
 db.productes_pizzeria.insertOne({
+    _id: "4",
     nom_producte: "Aigua",
     tipus_producte: "beguda",
     descripció_producte: "aigua",
-    imatge_producte: "https://media.healthyfood.com/wp-content/uploads/2017/03/Ask-the-experts-Plastic-water-bottles-1024x685.jpg"
+    imatge_producte: "shorturl.at/ahN67",
     preu_producte: "1"
 });
 
 // Botigues Pizzeria
 db.botiga_pizzeria.insertOne({
-    nom_botiga: "",
-    adreça_botiga: "",
-    codi_postal_botiga: "",
-    localitat_botiga: "",
-    província_botiga: ""
+    _id: "1";
+    nom_botiga: "Roberto Pizzeria Mamma Mia S.L",
+    adreça_botiga: "Carrer de les moreres 154",
+    codi_postal_botiga: "08001",
+    localitat_botiga: "Barcelona",
+    província_botiga: "Barcelona"
 });
 
 // Empleats Pizzeria
 db.empleat_pizzeria.insertOne({
-    nom_empleat: "",
-    cognoms_empleat: "",
-    posicio_empleat: "",
-    telefon_empleat: "",
-    nif_empleat: "",
-    id_botiga: ""
+    nom_empleat: "Roberto",
+    cognoms_empleat: "Romero Garcia",
+    posicio_empleat: "cuiner/a",
+    telefon_empleat: "643532771",
+    nif_empleat: "25434523D",
+    id_botiga: "1"
 });
 
+db.empleat_pizzeria.insertOne({
+    nom_empleat: "Lucrecia",
+    cognoms_empleat: "VenPiacere Casadevila",
+    posicio_empleat: "repartidor/a",
+    telefon_empleat: "644455771",
+    nif_empleat: "26914523D",
+    id_botiga: "1"
+});
 
 // Comandes Pizzeria
 db.comandes_pizzeria.insertOne({
-    id_client: "",
-    id_empleat: ""
-    tipus_comanda: "",
-    data_comanda: "",
-    lliurament_comanda: "";
-    productes_comanda: "",
-    preu_comanda: ""
+    id_client: "1",
+    id_empleat: "2"
+    tipus_comanda: "recollida",
+    data_comanda: "03-07-2022, 13:10",
+    lliurament_comanda: "03-07-2022, 13:15";
+    productes_comanda: ["1", "3", "4"],
+    preu_comanda: "19.50"
+});
+
+db.comandes_pizzeria.insertOne({
+    id_client: "2",
+    id_empleat: "2"
+    tipus_comanda: "domicili",
+    data_comanda: "05-07-2022, 14:10",
+    lliurament_comanda: "03-07-2022, 14:50";
+    productes_comanda: ["1", "2", "4", "4"],
+    preu_comanda: "25"
 });
