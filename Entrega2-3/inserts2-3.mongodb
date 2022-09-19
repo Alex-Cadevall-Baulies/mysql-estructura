@@ -42,51 +42,52 @@ db.ulleres_òptica.insertOne({
 //Clients Ulleres
 
 db.client_òptica.insertOne({
-    nom_client: "",
-    adreça_client: "",
-    telèfon_client: "",
-    email_client: "",
-    data_registre_client: "",
+    nom_client: "Anaxa Sanchez Marchal",
+    adreça_client: "Avinguda les roses d'alleli 39, Barcelona, 08035, Espanya",
+    telèfon_client: "665773882",
+    email_client: "Aran_xa_cha_cha@gmail.com",
+    data_registre_client: "09-03-2022",
     client_id_recomenat: ""
 });
 
 db.client_òptica.insertOne({
-    nom_client: "",
-    adreça_client: "",
-    telèfon_client: "",
-    email_client: "",
-    data_registre_client: "",
-    client_id_recomenat: ""
+    nom_client: "Patricio Lopez Gonzalez",
+    adreça_client: "Transversal del litoral 58, Barcelona, 08010, Espanya",
+    telèfon_client: "675884934",
+    email_client: "Pat_LoGonzalez@yahoo.es",
+    data_registre_client: "12-03-2022",
+    client_id_recomenat: "632828eca63f819fe59da77f"
 });
 
 // Empleats Ulleres
 
 db.empleat_òptica.insertOne({
-    nom_empleat: ""
+    nom_empleat: "Laia Pedrafolca Roncero"
 });
 
 db.empleat_òptica.insertOne({
-    nom_empleat: ""
+    nom_empleat: "Pol Zamora Cadafalch"
 });
+
 
 // Ventes Ulleres
 
 db.ventes_òptica.insertOne({
-    client_id: "",
-    empleat_id: "",
-    ulleres_id: ""
+    client_id: "632828eca63f819fe59da77f",
+    empleat_id: "632829e8950fdd884f2dac2d",
+    ulleres_id: "6328234515461146c58bec18"
 });
 
 db.ventes_òptica.insertOne({
-    client_id: "",
-    empleat_id: "",
-    ulleres_id: ""
+    client_id: "6328294fe9118e361deefe51",
+    empleat_id: "632829f503bfbce8ac276eb0",
+    ulleres_id: "6328234515461146c58bec18"
 });
 
 db.ventes_òptica.insertOne({
-    client_id: "",
-    empleat_id: "",
-    ulleres_id: ""
+    client_id: "632828eca63f819fe59da77f",
+    empleat_id: "632829f503bfbce8ac276eb0",
+    ulleres_id: "6328234515461146c58bec19"
 });
 
 
