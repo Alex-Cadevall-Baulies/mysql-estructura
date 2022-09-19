@@ -1,0 +1,17 @@
+db.ulleres_òptica.aggregate([
+  {
+    "$project": {
+      "proveidor_id": {
+        $toObjectId: "$proveidor_id"
+      }
+    }
+  },
+  {
+    "$lookup": {
+      "from": "proveidor_òptica",
+      "localField": "proveidor_id",
+      "foreignField": "_id",
+      "as": "proveidor_info"
+    }
+  }
+]);

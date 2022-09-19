@@ -1,20 +1,53 @@
 // Ulleres 
+
+// Proveidors Ulleres
 db.proveidor_òptica.insertOne({
-    nom_proveidor: "",
-    adreça_proveidor: "",
-    telèfon_proveidor: "",
-    fax_proveidor: "",
-    nif_proveidor: ""
+    nom_proveidor: "Ulleres Miguelito S.L",
+    adreça_proveidor: "Carrer de les acacies 24, 1-2, Barcelona, 08024, Espanya",
+    telèfon_proveidor: "623765443",
+    fax_proveidor: "93456354",
+    nif_proveidor: "F98765421"
+});
+
+db.proveidor_òptica.insertOne({
+    nom_proveidor: "El Tercer Ull S.C",
+    adreça_proveidor: "Poligon la sagrada verge 3, planta, Roses, 17480, Espanya",
+    telèfon_proveidor: "638743662",
+    fax_proveidor: "9324567721",
+    nif_proveidor: "D76829445"
+});
+
+// Marques ulleres
+
+db.ulleres_òptica.insertOne({
+    marca: "Lay Bhan",
+    graduació: "2.5",
+    montura: "Ultra Flex",
+    color_montura: "blau estrella de mar",
+    color_vidre: "transparent tintat",
+    preu: "120€",
+    proveidor_id: "63281c365b470311123ab2c2"
 });
 
 db.ulleres_òptica.insertOne({
-    proveidor_id: "",
-    marca: "",
-    graduació: "",
-    montura: "",
-    color_montura: "",
-    color_vidre: "",
-    preu: ""
+    marca: "Gutxi",
+    graduació: "1.25",
+    montura: "pasta rigida",
+    color_montura: "Negre marbre carbonitzat",
+    color_vidre: "verd botella sorra",
+    preu: "245€",
+    proveidor_id: "63281c3d73c47fbc0a53c8ec",
+});
+
+//Clients Ulleres
+
+db.client_òptica.insertOne({
+    nom_client: "",
+    adreça_client: "",
+    telèfon_client: "",
+    email_client: "",
+    data_registre_client: "",
+    client_id_recomenat: ""
 });
 
 db.client_òptica.insertOne({
@@ -26,8 +59,22 @@ db.client_òptica.insertOne({
     client_id_recomenat: ""
 });
 
+// Empleats Ulleres
+
 db.empleat_òptica.insertOne({
     nom_empleat: ""
+});
+
+db.empleat_òptica.insertOne({
+    nom_empleat: ""
+});
+
+// Ventes Ulleres
+
+db.ventes_òptica.insertOne({
+    client_id: "",
+    empleat_id: "",
+    ulleres_id: ""
 });
 
 db.ventes_òptica.insertOne({
@@ -35,6 +82,13 @@ db.ventes_òptica.insertOne({
     empleat_id: "",
     ulleres_id: ""
 });
+
+db.ventes_òptica.insertOne({
+    client_id: "",
+    empleat_id: "",
+    ulleres_id: ""
+});
+
 
 // Pizza
 
