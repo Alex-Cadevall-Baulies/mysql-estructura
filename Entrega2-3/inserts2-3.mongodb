@@ -2,6 +2,7 @@
 
 // Proveidors Ulleres
 db.proveidor_òptica.insertOne({
+    _id: "1",
     nom_proveidor: "Ulleres Miguelito S.L",
     adreça_proveidor: "Carrer de les acacies 24, 1-2, Barcelona, 08024, Espanya",
     telèfon_proveidor: "623765443",
@@ -10,6 +11,7 @@ db.proveidor_òptica.insertOne({
 });
 
 db.proveidor_òptica.insertOne({
+    _id: "2",
     nom_proveidor: "El Tercer Ull S.C",
     adreça_proveidor: "Poligon la sagrada verge 3, planta, Roses, 17480, Espanya",
     telèfon_proveidor: "638743662",
@@ -20,28 +22,31 @@ db.proveidor_òptica.insertOne({
 // Marques ulleres
 
 db.ulleres_òptica.insertOne({
+    _id: "1",
     marca: "Lay Bhan",
     graduació: "2.5",
     montura: "Ultra Flex",
     color_montura: "blau estrella de mar",
     color_vidre: "transparent tintat",
     preu: "120€",
-    proveidor_id: "63281c365b470311123ab2c2"
+    proveidor_id: "1"
 });
 
 db.ulleres_òptica.insertOne({
+    _id: "2",
     marca: "Gutxi",
     graduació: "1.25",
     montura: "pasta rigida",
     color_montura: "Negre marbre carbonitzat",
     color_vidre: "verd botella sorra",
     preu: "245€",
-    proveidor_id: "63281c3d73c47fbc0a53c8ec",
+    proveidor_id: "2",
 });
 
 //Clients Ulleres
 
 db.client_òptica.insertOne({
+    _id: "1",
     nom_client: "Anaxa Sanchez Marchal",
     adreça_client: "Avinguda les roses d'alleli 39, Barcelona, 08035, Espanya",
     telèfon_client: "665773882",
@@ -51,6 +56,7 @@ db.client_òptica.insertOne({
 });
 
 db.client_òptica.insertOne({
+    _id: "2",
     nom_client: "Patricio Lopez Gonzalez",
     adreça_client: "Transversal del litoral 58, Barcelona, 08010, Espanya",
     telèfon_client: "675884934",
@@ -62,10 +68,12 @@ db.client_òptica.insertOne({
 // Empleats Ulleres
 
 db.empleat_òptica.insertOne({
+    _id: "1",
     nom_empleat: "Laia Pedrafolca Roncero"
 });
 
 db.empleat_òptica.insertOne({
+    _id: "2",
     nom_empleat: "Pol Zamora Cadafalch"
 });
 
@@ -73,21 +81,21 @@ db.empleat_òptica.insertOne({
 // Ventes Ulleres
 
 db.ventes_òptica.insertOne({
-    client_id: "632828eca63f819fe59da77f",
-    empleat_id: "632829e8950fdd884f2dac2d",
-    ulleres_id: "6328234515461146c58bec18"
+    client_id: "1",
+    empleat_id: "1",
+    ulleres_id: "1"
 });
 
 db.ventes_òptica.insertOne({
-    client_id: "6328294fe9118e361deefe51",
-    empleat_id: "632829f503bfbce8ac276eb0",
-    ulleres_id: "6328234515461146c58bec18"
+    client_id: "2",
+    empleat_id: "2",
+    ulleres_id: "2"
 });
 
 db.ventes_òptica.insertOne({
-    client_id: "632828eca63f819fe59da77f",
-    empleat_id: "632829f503bfbce8ac276eb0",
-    ulleres_id: "6328234515461146c58bec19"
+    client_id: "1",
+    empleat_id: "2",
+    ulleres_id: "2"
 });
 
 
@@ -95,6 +103,7 @@ db.ventes_òptica.insertOne({
 
 // Clients Pizzeria
 db.clients_pizzeria.insertOne({
+    _id: "1",
     nom_client: "Lola",
     cognom_client: "Jerez del Castillo",
     adreça_client: "Carrer Lorega 12",
@@ -105,6 +114,7 @@ db.clients_pizzeria.insertOne({
 });
 
 db.clients_pizzeria.insertOne({
+    _id: "2",
     nom_client: "Julian",
     cognom_client: "Romero Gomez",
     adreça_client: "Carrer Rosalia 122",
@@ -116,25 +126,53 @@ db.clients_pizzeria.insertOne({
 
 // Categories Pizza
 db.categories_pizzeria.insertOne({
+    _id: "1",
     nom_categoria: "regular"
 });
 
 db.categories_pizzeria.insertOne({
+    _id: "2",
     nom_categoria: "vegetariana"
 });
 
 db.categories_pizzeria.insertOne({
+    _id: "3",
     nom_categoria: "vegana"
 });
 
 // Productes Pizzeria
 db.productes_pizzeria.insertOne({
-    nom_producte: "",
-    tipus_producte: "",
-    categoria_producte: ""
-    descripció_producte: "",
-    imatge_producte: ""
-    preu_producte: ""
+    nom_producte: "Pizza Barbacoa",
+    tipus_producte: "pizza",
+    categoria_producte: "1",
+    descripció_producte: ["carn picada", "formatge", "ceba", "baco", "salsa bbq"],
+    imatge_producte: "shorturl.at/kmW14"
+    preu_producte: "10.50"
+});
+
+db.productes_pizzeria.insertOne({
+    nom_producte: "Pizza Vegetal",
+    tipus_producte: "pizza",
+    categoria_producte: "3",
+    descripció_producte: "formatge vega, pebrot, ceba, salsa tomaquet, seitan",
+    imatge_producte: "https://jessicainthekitchen.com/wp-content/uploads/2020/05/Vegan-Pizza-3-1.jpg"
+    preu_producte: "12.50"
+});
+
+db.productes_pizzeria.insertOne({
+    nom_producte: "Hamburguesa simple",
+    tipus_producte: "hamburguesa",
+    descripció_producte: "carn, formatge",
+    imatge_producte: "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2NoZWVzZWJ1cmdlci0xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6ODI4fX19"
+    preu_producte: "8"
+});
+
+db.productes_pizzeria.insertOne({
+    nom_producte: "Aigua",
+    tipus_producte: "beguda",
+    descripció_producte: "aigua",
+    imatge_producte: "https://media.healthyfood.com/wp-content/uploads/2017/03/Ask-the-experts-Plastic-water-bottles-1024x685.jpg"
+    preu_producte: "1"
 });
 
 // Botigues Pizzeria
