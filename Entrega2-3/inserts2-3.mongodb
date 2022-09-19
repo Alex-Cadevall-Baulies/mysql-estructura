@@ -128,12 +128,24 @@ db.botiga_pizzeria.insertOne({
     província_botiga: ""
 });
 
+// Empleats Pizzeria
+db.empleat_pizzeria.insertOne({
+    nom_empleat: "",
+    cognoms_empleat: "",
+    posicio_empleat: "",
+    telefon_empleat: "",
+    nif_empleat: "",
+    id_botiga: ""
+});
+
 
 // Comandes Pizzeria
 db.comandes_pizzeria.insertOne({
     id_client: "",
+    id_empleat: ""
     tipus_comanda: "",
     data_comanda: "",
-    productes_comanda: ""
+    lliurament_comanda: "";
+    productes_comanda: "",
     preu_comanda: ""
 });
