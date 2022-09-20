@@ -1,14 +1,113 @@
+// Òptica database + collections
 use dbEntrega2_3_Optica
 .comment("nivell-1_exercici-1");
 
-//www.youtube.com/watch?v=RsWdj7V2Ojg&list=PLs3IFJPw3G9KSf2sa1V5DLT0RUmpVm-IZ&index=2
 db.createCollection('proveidor_òptica');
 db.createCollection('ulleres_òptica');
 db.createCollection('client_òptica');
 db.createCollection('ventes_òptica');
 
-// interelacionar usant objectID
-// https://www.mongodb.com/docs/manual/core/data-model-design/#data-modeling-referencing
+// Insterts Òptica
+
+// Proveidors Ulleres
+db.proveidor_òptica.insertOne({
+    _id: "1",
+    nom_proveidor: "Ulleres Miguelito S.L",
+    adreça_proveidor: "Carrer de les acacies 24, 1-2, Barcelona, 08024, Espanya",
+    telèfon_proveidor: "623765443",
+    fax_proveidor: "93456354",
+    nif_proveidor: "F98765421"
+});
+
+db.proveidor_òptica.insertOne({
+    _id: "2",
+    nom_proveidor: "El Tercer Ull S.C",
+    adreça_proveidor: "Poligon la sagrada verge 3, planta, Roses, 17480, Espanya",
+    telèfon_proveidor: "638743662",
+    fax_proveidor: "9324567721",
+    nif_proveidor: "D76829445"
+});
+
+// Marques ulleres
+
+db.ulleres_òptica.insertOne({
+    _id: "1",
+    marca: "Lay Bhan",
+    graduació: "2.5",
+    montura: "Ultra Flex",
+    color_montura: "blau estrella de mar",
+    color_vidre: "transparent tintat",
+    preu: "120€",
+    proveidor_id: "1"
+});
+
+db.ulleres_òptica.insertOne({
+    _id: "2",
+    marca: "Gutxi",
+    graduació: "1.25",
+    montura: "pasta rigida",
+    color_montura: "Negre marbre carbonitzat",
+    color_vidre: "verd botella sorra",
+    preu: "245€",
+    proveidor_id: "2",
+});
+
+//Clients Ulleres
+
+db.client_òptica.insertOne({
+    _id: "1",
+    nom_client: "Anaxa Sanchez Marchal",
+    adreça_client: "Avinguda les roses d'alleli 39, Barcelona, 08035, Espanya",
+    telèfon_client: "665773882",
+    email_client: "Aran_xa_cha_cha@gmail.com",
+    data_registre_client: "09-03-2022",
+    client_id_recomenat: ""
+});
+
+db.client_òptica.insertOne({
+    _id: "2",
+    nom_client: "Patricio Lopez Gonzalez",
+    adreça_client: "Transversal del litoral 58, Barcelona, 08010, Espanya",
+    telèfon_client: "675884934",
+    email_client: "Pat_LoGonzalez@yahoo.es",
+    data_registre_client: "12-03-2022",
+    client_id_recomenat: "632828eca63f819fe59da77f"
+});
+
+// Empleats Ulleres
+
+db.empleat_òptica.insertOne({
+    _id: "1",
+    nom_empleat: "Laia Pedrafolca Roncero"
+});
+
+db.empleat_òptica.insertOne({
+    _id: "2",
+    nom_empleat: "Pol Zamora Cadafalch"
+});
+
+
+// Ventes Ulleres
+
+db.ventes_òptica.insertOne({
+    client_id: "1",
+    empleat_id: "1",
+    ulleres_id: "1"
+});
+
+db.ventes_òptica.insertOne({
+    client_id: "2",
+    empleat_id: "2",
+    ulleres_id: "2"
+});
+
+db.ventes_òptica.insertOne({
+    client_id: "1",
+    empleat_id: "2",
+    ulleres_id: "2"
+});
+
+// Pizzeria database + collections
 
 use dbEntrega2_3_Pizzeria
 .comment("nivell-1_exercici-2");
@@ -19,3 +118,133 @@ db.createCollection('productes_pizzeria');
 db.createCollection('categories_pizza');
 db.createCollection('botigues_pizzeria');
 db.createCollection('empleats_pizzeria');
+
+// Inserts Pizzeria
+
+// Clients Pizzeria
+db.clients_pizzeria.insertOne({
+    _id: "1",
+    nom_client: "Lola",
+    cognom_client: "Jerez del Castillo",
+    adreça_client: "Carrer Lorega 12",
+    codi_postal_client: "08090",
+    localitat_client: "Barcelona",
+    província_client: "Barcelona",
+    telèfon_client: "657787377"
+});
+
+db.clients_pizzeria.insertOne({
+    _id: "2",
+    nom_client: "Julian",
+    cognom_client: "Romero Gomez",
+    adreça_client: "Carrer Rosalia 122",
+    codi_postal_client: "08014",
+    localitat_client: "Cornella",
+    província_client: "Barcelona",
+    telèfon_client: "657787377"
+});
+
+// Categories Pizza
+db.categories_pizzeria.insertOne({
+    _id: "1",
+    nom_categoria: "regular"
+});
+
+db.categories_pizzeria.insertOne({
+    _id: "2",
+    nom_categoria: "vegetariana"
+});
+
+db.categories_pizzeria.insertOne({
+    _id: "3",
+    nom_categoria: "vegana"
+});
+
+// Productes Pizzeria
+db.productes_pizzeria.insertOne({
+    _id: "1",
+    nom_producte: "Pizza Barbacoa",
+    tipus_producte: "pizza",
+    categoria_producte: "1",
+    descripció_producte: ["carn picada", "formatge", "ceba", "baco", "salsa bbq"],
+    imatge_poducte: "shorturl.at/FLMX0",
+    preu_producte: "10.50"
+});
+
+db.productes_pizzeria.insertOne({
+    _id: "2",
+    nom_producte: "Pizza Vegetal",
+    tipus_producte: "pizza",
+    categoria_producte: "3",
+    descripció_producte: ["formatge vega", "pebrot", "ceba", "salsa tomaquet", "seitan"],
+    imatge_producte: "shorturl.at/ehiZ7",
+    preu_producte: "12.50"
+});
+
+db.productes_pizzeria.insertOne({
+    _id: "3",
+    nom_producte: "Hamburguesa simple",
+    tipus_producte: "hamburguesa",
+    descripció_producte: ["carn", "formatge"],
+    imatge_producte: "shorturl.at/dqyPY",
+    preu_producte: "8"
+});
+
+db.productes_pizzeria.insertOne({
+    _id: "4",
+    nom_producte: "Aigua",
+    tipus_producte: "beguda",
+    descripció_producte: "aigua",
+    imatge_producte: "shorturl.at/ahN67",
+    preu_producte: "1"
+});
+
+// Botigues Pizzeria
+db.botiga_pizzeria.insertOne({
+    _id: "1";
+    nom_botiga: "Roberto Pizzeria Mamma Mia S.L",
+    adreça_botiga: "Carrer de les moreres 154",
+    codi_postal_botiga: "08001",
+    localitat_botiga: "Barcelona",
+    província_botiga: "Barcelona"
+});
+
+// Empleats Pizzeria
+db.empleat_pizzeria.insertOne({
+    nom_empleat: "Roberto",
+    cognoms_empleat: "Romero Garcia",
+    posicio_empleat: "cuiner/a",
+    telefon_empleat: "643532771",
+    nif_empleat: "25434523D",
+    id_botiga: "1"
+});
+
+db.empleat_pizzeria.insertOne({
+    nom_empleat: "Lucrecia",
+    cognoms_empleat: "VenPiacere Casadevila",
+    posicio_empleat: "repartidor/a",
+    telefon_empleat: "644455771",
+    nif_empleat: "26914523D",
+    id_botiga: "1"
+});
+
+// Comandes Pizzeria
+db.comandes_pizzeria.insertOne({
+    id_client: "1",
+    id_empleat: "2"
+    tipus_comanda: "recollida",
+    data_comanda: "03-07-2022, 13:10",
+    lliurament_comanda: "03-07-2022, 13:15";
+    productes_comanda: ["1", "3", "4"],
+    preu_comanda: "19.50"
+});
+
+db.comandes_pizzeria.insertOne({
+    id_client: "2",
+    id_empleat: "2"
+    tipus_comanda: "domicili",
+    data_comanda: "05-07-2022, 14:10",
+    lliurament_comanda: "03-07-2022, 14:50";
+    productes_comanda: ["1", "2", "4", "4"],
+    preu_comanda: "25"
+});
