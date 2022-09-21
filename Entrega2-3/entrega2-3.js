@@ -201,7 +201,7 @@ db.productes_pizzeria.insertOne({
 
 // Botigues Pizzeria
 db.botiga_pizzeria.insertOne({
-    _id: "1";
+    _id: "1",
     nom_botiga: "Roberto Pizzeria Mamma Mia S.L",
     adreça_botiga: "Carrer de les moreres 154",
     codi_postal_botiga: "08001",
