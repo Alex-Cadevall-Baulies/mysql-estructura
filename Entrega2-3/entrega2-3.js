@@ -1,7 +1,4 @@
 // Òptica database + collections
-use dbEntrega2_3_Optica
-.comment("nivell-1_exercici-1");
-
 db.createCollection('proveidor_òptica');
 db.createCollection('ulleres_òptica');
 db.createCollection('client_òptica');
