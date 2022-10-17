@@ -49,11 +49,18 @@ CREATE TABLE
     );
 
 CREATE TABLE
+    categoria_pizza (
+        id_categoria INTEGER NOT NULL AUTO_INCREMENT,
+        nom_categoria VARCHAR(400),
+        PRIMARY KEY (id_categoria)
+    )
+
+CREATE TABLE
     productes_pizzeria (
         id_producte INTEGER NOT NULL AUTO_INCREMENT,
         nom_producte TEXT,
-        categoria_pizza VARCHAR(400),
-        descripció_producte TEXT,
+        FOREIGN KEY (id_categoria) REFERENCES categoria_pizza(id_categoria),
+        descripcio_producte TEXT,
         imatge_producte VARBINARY(8000),
         preu_producte INTEGER,
         PRIMARY KEY (id_producte)
@@ -62,13 +69,12 @@ CREATE TABLE
 CREATE TABLE
     empleats_pizzeria(
         id_botiga INTEGER NOT NULL,
-        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
         id_empleat INTEGER NOT NULL AUTO_INCREMENT,
         nom_empleat VARCHAR(200),
         cognoms_empleat VARCHAR(400),
         nif_empleat INTEGER,
         telefon_empleat INTEGER,
-        posició_laboral VARCHAR(200),
+        posicio_laboral VARCHAR(200),
         PRIMARY KEY (id_empleat)
     );
 
@@ -124,32 +130,40 @@ VALUES(3, 2, '2022-10-01 21:02', 'domicili', '2022-09-20 22:00' );
 INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
 VALUES(4, 3, '2022-10-04 22:10', 'recollida', '2022-09-20 22:21' );
 
+-- Categories Pizza
+INSERT INTO categoria_pizza (nom_categoria)
+VALUES('carn');
+INSERT INTO categoria_pizza (nom_categoria)
+VALUES('vegetariana');
+INSERT INTO categoria_pizza (nom_categoria)
+VALUES('vegana');
+
 -- Productes
-INSERT INTO productes_pizzeria (nom_producte, categoria_pizza, descripció_producte, imatge_producte, preu_producte)
-VALUES('pizza margarita', 'vegetariana', 'pizza: tomate, queso, oregano', 'https://recetinas.com/wp-content/uploads/2017/09/pizza-margarita.jpg', 10);
-INSERT INTO productes_pizzeria (nom_producte, categoria_pizza, descripció_producte, imatge_producte, preu_producte)
-VALUES('pizza barbacoa', 'carnica', 'pizza: tomate, queso, oregano, carne picada, especias, cebolla, salsa bbq', 'https://okdiario.com/img/2015/09/08/receta-pizza-barbacoa.jpg', 12);
-INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+INSERT INTO productes_pizzeria (nom_producte, categoria_pizza, descripcio_producte, imatge_producte, preu_producte)
+VALUES('pizza margarita', 2, 'pizza: tomate, queso, oregano', 'https://recetinas.com/wp-content/uploads/2017/09/pizza-margarita.jpg', 10);
+INSERT INTO productes_pizzeria (nom_producte, categoria_pizza, descripcio_producte, imatge_producte, preu_producte)
+VALUES('pizza barbacoa', 1, 'pizza: tomate, queso, oregano, carne picada, especias, cebolla, salsa bbq', 'https://okdiario.com/img/2015/09/08/receta-pizza-barbacoa.jpg', 12);
+INSERT INTO productes_pizzeria (nom_producte, descripcio_producte, imatge_producte, preu_producte)
 VALUES('hamburguesa simple', 'hamburguesa: queso, carne, lechuga, tomate', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSHflbYX39o5ieWh9ZfdduxInWkKXOVpfc8g&usqp=CAU', 8);
-INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+INSERT INTO productes_pizzeria (nom_producte, descripcio_producte, imatge_producte, preu_producte)
 VALUES('coca-cola', 'bebida', 'https://www.cocacola.es/content/dam/one/es/es2/coca-cola/products/productos/dic-2021/CC_Origal.jpg', 1.50);
-INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+INSERT INTO productes_pizzeria (nom_producte, descripcio_producte, imatge_producte, preu_producte)
 VALUES('agua', 'bebida', 'https://img.freepik.com/free-psd/plastic-water-bottle-mockup_439185-2468.jpg?w=2000', 1.00);
-INSERT INTO productes_pizzeria (nom_producte, descripció_producte, imatge_producte, preu_producte)
+INSERT INTO productes_pizzeria (nom_producte, descripcio_producte, imatge_producte, preu_producte)
 VALUES('cerveza', 'bebida', 'https://static.ulabox.com/media/173824_xl.jpg', 2.00);
 
 --Empleats
-INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(1, 'Renata', 'Gongora Perez', 'cuiner/a');
-INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(1, 'Leandro', 'Vincenço Gomez', 'repartidor/a');
-INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(2, 'Joaquin', 'Vincenço Perez', 'cuiner/a');
-INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(2, 'Romera', 'Perez Gomez', 'repartidor/a');
-INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(3, 'Laura', 'Perez Perez', 'cuiner/a');
-INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posició_laboral)
+INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(3, 'Carlos', 'Perez Vincenço', 'repartidor/a');
 
 -- Comandes
@@ -173,7 +187,7 @@ VALUES(4, 3, 3, 6);
 -- Queries Pizzeria
 
 --Llista quants productes de categoria 'Begudes' s'han venut en una determinada localitat.
-SELECT l.nom_localitat, p.nom_producte, p.descripció_producte FROM localitats_pizzeria AS l INNER JOIN botigues_pizzeria AS b ON l.nom_localitat = b.nom_localitat INNER JOIN comandes_pizzeria AS c ON  c.id_botiga = b.id_botiga INNER JOIN productes_pizzeria AS p ON c.id_producte = p.id_producte  WHERE p.descripció_producte = 'bebida';
+SELECT l.nom_localitat, p.nom_producte, p.descripcio_producte FROM localitats_pizzeria AS l INNER JOIN botigues_pizzeria AS b ON l.nom_localitat = b.nom_localitat INNER JOIN comandes_pizzeria AS c ON  c.id_botiga = b.id_botiga INNER JOIN productes_pizzeria AS p ON c.id_producte = p.id_producte  WHERE p.descripcio_producte = 'bebida';
 -- Llista quantes comandes ha efectuat un determinat empleat/da.
 SELECT e.id_empleat, e.nom_empleat, e.cognoms_empleat, c.id_comanda FROM empleats_pizzeria AS e INNER JOIN comandes_pizzeria AS c ON e.id_empleat = c.id_empleat WHERE e.id_empleat = 2;
 
