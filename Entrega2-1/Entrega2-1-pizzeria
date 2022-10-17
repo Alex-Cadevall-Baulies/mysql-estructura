@@ -53,12 +53,13 @@ CREATE TABLE
         id_categoria INTEGER NOT NULL AUTO_INCREMENT,
         nom_categoria VARCHAR(400),
         PRIMARY KEY (id_categoria)
-    )
+    );
 
 CREATE TABLE
     productes_pizzeria (
         id_producte INTEGER NOT NULL AUTO_INCREMENT,
         nom_producte TEXT,
+        id_categoria INTEGER NOT NULL,
         FOREIGN KEY (id_categoria) REFERENCES categoria_pizza(id_categoria),
         descripcio_producte TEXT,
         imatge_producte VARBINARY(8000),
