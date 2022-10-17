@@ -1,4 +1,5 @@
 -- Nivell 1 / Exercici 1 - optica
+DROP DATABASE IF EXISTS optica_cul_ampolla;
 CREATE DATABASE optica_cul_ampolla;
 
 CREATE TABLE
