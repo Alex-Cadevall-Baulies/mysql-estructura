@@ -36,19 +36,6 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    ventes_pizzeria (
-        id_client INTEGER NOT NULL,
-        FOREIGN KEY (id_client) REFERENCES client_pizzeria(id_client),
-        id_botiga INTEGER NOT NULL,
-        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
-        id_comanda INTEGER NOT NULL AUTO_INCREMENT,
-        data_comanda DATETIME NOT NULL,
-        tipus_comanda VARCHAR (200),
-        data_entrega DATETIME,
-        PRIMARY KEY(id_comanda)
-    );
-
-CREATE TABLE
     categoria_pizza (
         id_categoria INTEGER NOT NULL AUTO_INCREMENT,
         nom_categoria VARCHAR(400),
@@ -79,16 +66,27 @@ CREATE TABLE
         PRIMARY KEY (id_empleat)
     );
 
+    CREATE TABLE
+    ventes_pizzeria (
+        id_client INTEGER NOT NULL,
+        FOREIGN KEY (id_client) REFERENCES client_pizzeria(id_client),
+        id_botiga INTEGER NOT NULL,
+        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
+        id_empleat INTEGER NOT NULL,
+        FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat),
+        id_comanda INTEGER NOT NULL AUTO_INCREMENT,
+        data_comanda DATETIME NOT NULL,
+        tipus_comanda VARCHAR (200),
+        data_entrega DATETIME,
+        PRIMARY KEY(id_comanda)
+    );
+
 CREATE TABLE
     comandes_pizzeria(
         id_comanda INTEGER NOT NULL,
         FOREIGN KEY (id_comanda) REFERENCES ventes_pizzeria(id_comanda),
-        id_botiga INTEGER NOT NULL,
-        FOREIGN KEY (id_botiga) REFERENCES botigues_pizzeria(id_botiga),
         id_producte INTEGER NOT NULL,
-        FOREIGN KEY (id_producte) REFERENCES productes_pizzeria(id_producte),
-        id_empleat INTEGER NOT NULL,
-        FOREIGN KEY (id_empleat) REFERENCES empleats_pizzeria(id_empleat)
+        FOREIGN KEY (id_producte) REFERENCES productes_pizzeria(id_producte)
     );
 
 -- Inserts Pizzeria
@@ -118,18 +116,6 @@ INSERT INTO botigues_pizzeria (adreca_botiga, codi_postal_botiga, nom_localitat,
 VALUES('avenida monarquica 14', 15810, 'Arzua', 'La Coruña');
 INSERT INTO botigues_pizzeria (adreca_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
 VALUES('carretera plaza españa', 01308, 'El Campillar', 'Alava');
-
--- Ventes
-INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
-VALUES(1, 1, '2022-09-20 13:00', 'domicili', '2022-09-20 13:40' );
-INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
-VALUES(2, 1, '2022-09-20 13:10', 'recollida', '2022-09-20 13:15' );
-INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
-VALUES(1, 1, '2022-09-21 13:12', 'domicili', '2022-09-20 13:57' );
-INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
-VALUES(3, 2, '2022-10-01 21:02', 'domicili', '2022-09-20 22:00' );
-INSERT INTO ventes_pizzeria (id_client, id_botiga, data_comanda, tipus_comanda, data_entrega)
-VALUES(4, 3, '2022-10-04 22:10', 'recollida', '2022-09-20 22:21' );
 
 -- Categories Pizza
 INSERT INTO categoria_pizza (nom_categoria)
@@ -167,28 +153,39 @@ VALUES(3, 'Laura', 'Perez Perez', 'cuiner/a');
 INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(3, 'Carlos', 'Perez Vincenco', 'repartidor/a');
 
+-- Ventes
+INSERT INTO ventes_pizzeria (id_client, id_botiga, id_empleat, data_comanda, tipus_comanda, data_entrega)
+VALUES(1, 1, 2, '2022-09-20 13:00', 'domicili', '2022-09-20 13:40' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, id_empleat, data_comanda, tipus_comanda, data_entrega)
+VALUES(2, 1, 2, '2022-09-20 13:10', 'recollida', '2022-09-20 13:15' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, id_empleat, data_comanda, tipus_comanda, data_entrega)
+VALUES(1, 1, 4, '2022-09-21 13:12', 'domicili', '2022-09-20 13:57' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, id_empleat, data_comanda, tipus_comanda, data_entrega)
+VALUES(3, 2, 4, '2022-10-01 21:02', 'domicili', '2022-09-20 22:00' );
+INSERT INTO ventes_pizzeria (id_client, id_botiga, id_empleat, data_comanda, tipus_comanda, data_entrega)
+VALUES(4, 3, 6, '2022-10-04 22:10', 'recollida', '2022-09-20 22:21' );
+
 -- Comandes
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(1, 1, 1, 2);
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(1, 1, 5, 2);
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(2, 1, 2, 2);
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(2, 1, 3, 2);
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(3, 1, 6, 2);
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(3, 1, 2, 2);
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(4, 2, 2, 4);
-INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
-VALUES(4, 3, 3, 6);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(1, 1);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(1, 5);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(2, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(2, 3);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(3, 6);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(3, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(4, 2);
+INSERT INTO comandes_pizzeria (id_comanda, id_producte)
+VALUES(4, 3);
 
 -- Queries Pizzeria
 
 --Llista quants productes de categoria 'Begudes' s'han venut en una determinada localitat.
-SELECT l.nom_localitat, p.nom_producte, p.descripcio_producte FROM localitats_pizzeria AS l INNER JOIN botigues_pizzeria AS b ON l.nom_localitat = b.nom_localitat INNER JOIN comandes_pizzeria AS c ON  c.id_botiga = b.id_botiga INNER JOIN productes_pizzeria AS p ON c.id_producte = p.id_producte  WHERE p.descripcio_producte = 'bebida';
+SELECT l.nom_localitat, p.nom_producte, p.descripcio_producte FROM localitats_pizzeria AS l INNER JOIN botigues_pizzeria AS b ON l.nom_localitat = b.nom_localitat INNER JOIN ventes_pizzeria AS v ON  b.id_botiga = v.id_botiga INNER JOIN comandes_pizzeria AS c ON v.id_comanda = c.id_comanda INNER JOIN productes_pizzeria AS p ON c.id_producte = p.id_producte  WHERE p.descripcio_producte = 'bebida';
 -- Llista quantes comandes ha efectuat un determinat empleat/da.
-SELECT e.id_empleat, e.nom_empleat, e.cognoms_empleat, c.id_comanda FROM empleats_pizzeria AS e INNER JOIN comandes_pizzeria AS c ON e.id_empleat = c.id_empleat WHERE e.id_empleat = 2;
-
+SELECT e.id_empleat, e.nom_empleat, e.cognoms_empleat, v.id_comanda FROM empleats_pizzeria AS e INNER JOIN ventes_pizzeria AS v ON e.id_empleat = v.id_empleat WHERE e.id_empleat = 2;
