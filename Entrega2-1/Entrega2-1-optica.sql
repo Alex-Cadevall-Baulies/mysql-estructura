@@ -6,7 +6,7 @@ CREATE TABLE
     proveidor_optica (
         id_proveidor INTEGER NOT NULL AUTO_INCREMENT,
         nom_proveidor TEXT,
-        adreça_proveidor TEXT,
+        adreca_proveidor TEXT,
         telefon_proveidor INTEGER,
         fax_proveidor INTEGER,
         nif_proveidor VARCHAR(9),
@@ -32,7 +32,7 @@ CREATE TABLE
         id_client INTEGER NOT NULL AUTO_INCREMENT,
         nom_client TEXT,
         data_registre DATE,
-        adreça_client TEXT,
+        adreca_client TEXT,
         telefon_client INTEGER,
         email_client TEXT,
         id_recomanat INTEGER,
@@ -64,9 +64,9 @@ CREATE TABLE
 -- Inserts optica
 
 -- Proveïdors
-INSERT INTO proveidor_optica (nom_proveidor, adreça_proveidor, telefon_proveidor, nif_proveidor)
+INSERT INTO proveidor_optica (nom_proveidor, adreca_proveidor, telefon_proveidor, nif_proveidor)
 VALUES('Ulleres Manolo', 'Carrer Garrotxa 24', 654748229, 'D29896658');
-INSERT INTO proveidor_optica (nom_proveidor, adreça_proveidor, fax_proveidor, nif_proveidor)
+INSERT INTO proveidor_optica (nom_proveidor, adreca_proveidor, fax_proveidor, nif_proveidor)
 VALUES('Fasion View', 'Carrer LeDejun 19', 617328229, 'F56456658');
 
 -- Ulleres

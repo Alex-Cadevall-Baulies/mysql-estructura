@@ -14,7 +14,7 @@ CREATE TABLE
         nom_client TEXT,
         cognoms_client TEXT,
         telefon_client INTEGER,
-        adreça_client TEXT,
+        adreca_client TEXT,
         codi_postal_client INTEGER,
         nom_localitat VARCHAR (50),
         FOREIGN KEY (nom_localitat) REFERENCES localitats_pizzeria(nom_localitat),
@@ -26,7 +26,7 @@ CREATE TABLE
 CREATE TABLE
     botigues_pizzeria (
         id_botiga INTEGER NOT NULL AUTO_INCREMENT,
-        adreça_botiga TEXT,
+        adreca_botiga TEXT,
         codi_postal_botiga INTEGER,
         nom_localitat VARCHAR (50),
         FOREIGN KEY (nom_localitat) REFERENCES localitats_pizzeria(nom_localitat),
@@ -112,11 +112,11 @@ INSERT INTO client_pizzeria (nom_client, cognoms_client, telefon_client, nom_loc
 VALUES('Gertrudis', 'Comes Ferrer', 672352212, 'El Campillar', 'Alava');
 
 -- Botigues
-INSERT INTO botigues_pizzeria (adreça_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
+INSERT INTO botigues_pizzeria (adreca_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
 VALUES('calle maravillas 23', 46134, 'Foyos', 'Valencia');
-INSERT INTO botigues_pizzeria (adreça_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
+INSERT INTO botigues_pizzeria (adreca_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
 VALUES('avenida monarquica 14', 15810, 'Arzua', 'La Coruña');
-INSERT INTO botigues_pizzeria (adreça_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
+INSERT INTO botigues_pizzeria (adreca_botiga, codi_postal_botiga, nom_localitat, nom_provincia)
 VALUES('carretera plaza españa', 01308, 'El Campillar', 'Alava');
 
 -- Ventes
@@ -157,15 +157,15 @@ VALUES('cerveza', 'bebida', 'https://static.ulabox.com/media/173824_xl.jpg', 2.0
 INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(1, 'Renata', 'Gongora Perez', 'cuiner/a');
 INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
-VALUES(1, 'Leandro', 'Vincenço Gomez', 'repartidor/a');
+VALUES(1, 'Leandro', 'Vincenco Gomez', 'repartidor/a');
 INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
-VALUES(2, 'Joaquin', 'Vincenço Perez', 'cuiner/a');
+VALUES(2, 'Joaquin', 'Vincenco Perez', 'cuiner/a');
 INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(2, 'Romera', 'Perez Gomez', 'repartidor/a');
 INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
 VALUES(3, 'Laura', 'Perez Perez', 'cuiner/a');
 INSERT INTO empleats_pizzeria (id_botiga, nom_empleat, cognoms_empleat, posicio_laboral)
-VALUES(3, 'Carlos', 'Perez Vincenço', 'repartidor/a');
+VALUES(3, 'Carlos', 'Perez Vincenco', 'repartidor/a');
 
 -- Comandes
 INSERT INTO comandes_pizzeria (id_comanda, id_botiga, id_producte, id_empleat)
